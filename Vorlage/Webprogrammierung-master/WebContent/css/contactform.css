@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+
+#contactform table {width:500px;}
+
+#contactform body,td,th{font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;color:#333333;}
+#contactform body{background-color: #FFFFFF;}
+#contactform a:link, a:visited, a:active{color:#0066FF;text-decoration:none;}
+#contactform a:hover{text-decoration: underline;}
+#contactform td {width:150px;}
