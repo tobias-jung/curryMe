@@ -46,26 +46,42 @@
         color: white;
     }
     
+    body section {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    body section .middle {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     body section .main {
         background-color: chartreuse;
-        width: 60%;
+        width: 55%;
+        padding-right: 5%;
     }
     
     body section .sidebar {
         background-color: aqua;
         float: right;
-        width: 35%;
+        width: 30%;
     }
     
     body footer {
-        position: absolute;
-        bottom: 0;
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 95%;
         background-color: dimgray;
-        padding: 3px;
-        width: 100%;
+        padding-top: 5px;
+        border-top-left-radius: 15px 30px;
+        border-top-right-radius: 15px 30px;
     }
     
     body footer nav {
