@@ -4,69 +4,86 @@
 <head>
     <meta charset="utf-8">
     <meta name="Author" content="Sven Cieslok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CurryMe</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-    <header>
-        <img src="media/logo.png" alt="Logo leider nicht verfügbar." />
+<body class="body">
+    <header class="mainheader">
+        <img src="media/logo.png">
         <nav>
             <ul>
-                <li><a href="index.html" title="Home">Home</a></li>
-                <li><a href="html/kontakt.html" title="Anfahrt">Anfahrt</a></li>
-                <li><a href="html/impressum.html" title="Impressum">Impressum</a></li>
-                <li><a href="html/login.html" title="Login">Login</a></li>
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Über uns</a>
+                </li>
+                <li>
+                    <a href="#">Kontakt</a>
+                </li>
+                <li>
+                    <a href="#">Impressum</a>
+                </li>
             </ul>
         </nav>
-        <p>#Countdown</p>
     </header>
-    <section>
-        <div class="middle">
-            <div class="sidebar">
-                <p>Warenkorb</p>
-                <p>...</p>
-            </div>
-            <div class="main">
-                <article>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </article>
-                <article>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </article>
-                <article>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </article>
-            </div>
+    <div class="maincontent ">
+        <div class="content ">
+            <article class="topcontent ">
+                <header>
+                    <h2><a href="# " title="First post ">First post</a></h2></header>
+                <footer>
+                    <p class="postInfo ">This post is written by Sven C.</p>
+                </footer>
+                <content>
+                    lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla
+                </content>
+            </article>
+            <article class="bottomcontent ">
+                <header>
+                    <h2><a href="# " title="Second post ">Second post</a></h2></header>
+                <footer>
+                    <p class="postinfo ">This post is written by Sven C.</p>
+                </footer>
+                <content>
+                    lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla
+                </content>
+            </article>
         </div>
-    </section>
-    <footer>
-        <nav>
-            <ul>
-                <li>
-                    <p><b>CurryMe</b></p>
-                </li>
-                <li>
-                    <p>Coblitzallee 1-9</p>
-                </li>
-                <li>
-                    <p>68163 Mannheim</p>
-                </li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li>
-                    <p><b>Kontakt</b></p>
-                </li>
-                <li>
-                    <p>Tel.: 0621 41050</p>
-                </li>
-                <li>
-                    <a href="mailto:curryme@example.de">curryme@example.de</a>
-                </li>
-            </ul>
-        </nav>
+    </div>
+    <aside class="top-sidebar ">
+        <article>
+            <h2><a href="#">Warenkorb</a></h2>
+            <p>lorem Ipsum blablablabla lorem Ipsum blablablabla</p>
+        </article>
+    </aside>
+    <footer class="mainfooter ">
+        <ul>
+            <li>
+                <h2>Anfahrt</h2></li>
+            <li>
+                <p>Coblitzallee 6-8</p>
+            </li>
+            <li>
+                <p>68163 Mannheim</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <h2>Kontakt</h2></li>
+            <li>
+                <p>tel: 0621/123456</p>
+            </li>
+            <li>
+                <p>
+                    <a href="emailto:curryme@example.com">curryme@example.com</a>
+                </p>
+            </li>
+        </ul>
+        <p class="copyright">&copy;2015 curry.me</p>
+
     </footer>
 </body>
 

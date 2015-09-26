@@ -2,99 +2,239 @@
     /* CSS Document */
     
     body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        margin: 0;
-        padding: 0;
-        width: auto;
+        background-color: lightgray;
+        color: #000305;
+        font-size: 87.5%;
+        font-family: Arial, 'Lucida Sans Unicode';
+        line-height: 1.5;
+        text-align: left;
     }
     
-    body header {
-        margin-left: auto;
-        margin-right: auto;
-        width: 90%;
-        background-color: dimgray;
-        padding-top: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-bottom-left-radius: 15px 30px;
-        border-bottom-right-radius: 15px 30px;
+    a {
+        text-decoration: none;
+        color: #ffc125;
     }
     
-    body header img {
-        width: 200px;
+    a:link,
+    a:visited {
+        color: #ffc125;
     }
     
-    body header nav {
-        display: inline-block
-    }
-    
-    body header nav ul {}
-    
-    body header nav ul li {
-        display: inline;
-        margin-right: 10px;
-    }
-    
-    body header nav ul li a {
-        color: #FFC125;
-    }
-    
-    body header p {
-        display: inline;
-        float: right;
+    a:hover,
+    a:active {
+        background-color: #ffc125;
         color: white;
     }
     
-    body section {
-        margin-left: auto;
-        margin-right: auto;
+    .body {
+        margin: 0 auto;
+        width: 70%;
+        clear: both;
     }
     
-    body section .middle {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    body section .main {
-        background-color: chartreuse;
-        width: 55%;
-        padding-right: 5%;
-    }
-    
-    body section .sidebar {
-        background-color: aqua;
-        float: right;
+    .mainheader img {
         width: 30%;
+        height: auto;
+        margin: 2% 0;
     }
     
-    body footer {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 95%;
-        background-color: dimgray;
-        padding-top: 5px;
-        border-top-left-radius: 15px 30px;
-        border-top-right-radius: 15px 30px;
+    .mainheader nav {
+        background-color: #666;
+        height: 40px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
     }
     
-    body footer nav {
-        display: inline-block;
+    .mainheader nav ul {
+        list-style: none;
+        margin: 0 auto;
     }
     
-    body footer nav ul {}
-    
-    body footer nav ul li {
-        color: white;
+    .mainheader nav ul li {
+        float: left;
         display: inline;
     }
     
-    body footer nav ul li a {
-        color: #FFC125;
+    .mainheader nav a:link,
+    .mainheader nav a:visited {
+        color: white;
+        display: inline-block;
+        padding: 10px 25px;
+        height: 20px;
+    }
+    
+    .mainheader nav a:hover,
+    .mainheader nav a:active,
+    .mainheader nav .active a:link,
+    .mainheader nav .active a:visited {
+        background-color: #ffc125;
+        color: white;
+        text-shadow: none;
+    }
+    
+    .mainheader nav ul li a {
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .maincontent {
+        line-height: 25px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .content {
+        width: 70%;
+        float: left;
+    }
+    
+    .topcontent {
+        background-color: white;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        padding: 3% 5%;
+        margin-top: 14px;
+    }
+    
+    .bottomcontent {
+        background-color: white;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        padding: 3% 5%;
+        margin-top: 2px;
+    }
+    
+    .top-sidebar {
+        width: 21%;
+        float: left;
+        background-color: white;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        margin: 1% 0 2% 3%;
+        padding: 2% 3%;
+    }
+    
+    .postinfo {
+        font-style: italic;
+        color: grey;
+        font: 90%
+    }
+    
+    .mainfooter {
+        width: 100%;
+        height: 100px;
+        float: left;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        background-color: #666;
+        margin: 2% 0;
+    }
+    
+    .mainfooter ul {
+        list-style: none;
+        margin: 0 auto;
+        float: left;
+        line-height: 0.8;
+    }
+    
+    .mainfooter ul li p,
+    .mainfooter ul li h2 {
+        color: white;
+    }
+    
+    .copyright {
+        float: right;
+        margin-right: 2%;
+        color: white;
+    }
+    
+    @media only screen and (min-width: 150px) and (max-width: 800px) {
+        .body {
+            width: 90%;
+            font-size: 95%
+        }
+        .mainheader img {
+            width: 100%;
+        }
+        .mainheader nav {
+            height: 160px;
+        }
+        .mainheader nav ul {
+            padding-left: 0;
+        }
+        .mainheader nav ul li {
+            width: 100%;
+            text-align: center;
+        }
+        .mainheader nav a:link,
+        .mainheader nav a:visited {
+            padding: 10px 25px;
+            height: 20px;
+        }
+        .mainheader nav a:hover,
+        .mainheader nav a:active,
+        .mainheader nav .active a:link,
+        .mainheader nav .active a:visited {
+            display: block;
+        }
+        .mainheader nav ul li a {}
+        .maincontent {}
+        .content {
+            width: 100%;
+            float: left;
+            margin-top: 2%;
+        }
+        .topcontent {
+            background-color: white;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            padding: 3% 5%;
+            margin-top: 14px;
+            margin-bottom: 3%;
+        }
+        .bottomcontent {
+            margin-top: 3%;
+        }
+        .top-sidebar {
+            width: 94%;
+            float: left;
+            margin: 3% auto;
+            padding: 2% 3%;
+        }
+        .postinfo {
+            display: none;
+        }
+        .mainfooter {
+            width: 100%;
+            height: 250px;
+        }
+        .mainfooter p {
+            width: 92%;
+            color: white;
+            margin: 2% auto;
+        }
+        .mainfooter ul {
+            list-style: none;
+            margin: 0 auto;
+            float: none;
+            text-align: center;
+            line-height: 1.0;
+        }
+        .mainfooter h2 {
+            margin: 2% auto;
+            text-align: center;
+        }
+        .copyright {
+            float: right;
+            margin-right: 2%;
+            color: white;
+        }
     }
