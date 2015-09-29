@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CurryMe</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    
 </head>
 
 <body class="body">
@@ -15,16 +17,21 @@
         <nav>
             <ul>
                 <li class="active">
-                    <a href="#">Home</a>
+
+                    <a href="./html/startseite.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Startseite</a>
                 </li>
                 <li>
-                    <a href="#">Über uns</a>
+                    <a href="./html/speisekarte.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Speisekarte</a>
                 </li>
                 <li>
-                    <a href="#">Kontakt</a>
+                    <a href="./html/ueberuns.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Über uns</a>
                 </li>
                 <li>
-                    <a href="#">Impressum</a>
+                    <a href="./html/kontakt.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Kontakt</a>
+                </li>
+                <li>
+                    <a href="./html/impressum.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Impressum</a>
+
                 </li>
             </ul>
         </nav>
@@ -32,25 +39,17 @@
     <div class="maincontent ">
         <div class="content ">
             <article class="topcontent ">
-                <header>
-                    <h2><a href="# " title="First post ">First post</a></h2></header>
-                <footer>
-                    <p class="postInfo ">This post is written by Sven C.</p>
-                </footer>
                 <content>
-                    lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla
-                </content>
-            </article>
-            <article class="bottomcontent ">
-                <header>
-                    <h2><a href="# " title="Second post ">Second post</a></h2></header>
-                <footer>
-                    <p class="postinfo ">This post is written by Sven C.</p>
-                </footer>
-                <content>
-                    lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla lorem Ipsum blablablabla
-                </content>
-            </article>
+<iframe frameborder="no" src="html/startseite.html" 
+width="95%" height="100" id="contentFrame">
+
+  <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen.
+  </p>
+
+</iframe>
+                    </content>
+                </article>
+               
         </div>
     </div>
     <aside class="top-sidebar ">
@@ -86,5 +85,6 @@
 
     </footer>
 </body>
+        <script language="javascript" type="text/javascript" src="js/script.js"></script>
 
 </html>
