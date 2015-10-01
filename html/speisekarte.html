@@ -1,27 +1,55 @@
 <html>
-    
-        <meta charset="utf-8">
-    <meta name="Author" content="Fabian Soelker">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CurryMe</title>
-     <link href="../css/style.css" rel="stylesheet" type="text/css">
-    
+
+<meta charset="utf-8">
+<meta name="Author" content="Fabian Soelker">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CurryMe</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="../js/script.js"></script>
+
 <head>
 </head>
-    
-    <body>
 
-                        <article class="topcontent ">
-                <header>
-                    <h2><a href="# " title="Speisekarte">Speisekarte</a></h2></header>
-                <content>
+<body>
 
-Hier Drag and Drop Content
-                    
-                </content>
-            </article>
     
-    
-    </body>
+    <article class="topcontent ">
+        <header>
+            <h2><a href="# " title="Speisekarte">Speisekarte</a></h2></header>
+        <content>
+
+
+            <script language="javascript" type="text/javascript">
+                var artikel = getArtikel();
+ 
+
+                for (var i = 0; i < artikel.length; i++) {
+
+                    document.write("<div class=draggableContent draggable=true id=" + artikel[i].id + ">");
+                    document.write("<table border=1 id=" + artikel[i].id + ">");
+                    document.write("<tr>");
+                    document.write("<td>");
+                    document.write("<img src = " + artikel[i].grafik + ">");
+                    document.write("</td>");
+                    document.write("<td>");
+                    document.write(artikel[i].name)
+                    document.write("</td>")
+                    document.write("<td>")
+                    document.write(artikel[i].beschreibung)
+                    document.write("</td>")
+                    document.write("<td>")
+                    document.write((artikel[i].preis) + "€")
+                    document.write("</td>")
+                    document.write("</tr>")
+                    document.write("</table>")
+                    document.write("<br>");
+                    document.write("</div>")
+                }
+            </script>
+        </content>
+    </article>
+
+
+</body>
 
 </html>

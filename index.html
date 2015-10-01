@@ -11,7 +11,7 @@
 
 </head>
 
-<body class="body">
+<body class="body" onload="">
     <header class="mainheader">
         <img src="media/logo.png">
         <nav>
@@ -51,58 +51,14 @@
         </div>
     </div>
     <aside class="top-sidebar ">
-        <article>
-            <h2><a href="#">Warenkorb</a></h2>
+ 
+         <iFrame frameborder="no" src="html/warenkorb.html" width="100%" height="1000px" id="warenkorbFrame">
+                        <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen.
+                        </p>
 
-
-            <script language="javascript" type="text/javascript">
-                add(1);
-                add(1);
-                add(2);
-                add(3);
-
-
-                document.write("<table>")
-                document.write("<th>Anzahl</th>")
-                document.write("<th>Produkt</th>")
-                document.write("<th>Einzelpreis</th>")
-                document.write("<th>Gesamt</th>")
-
-                for (var i = 0; i < getArtikel().length; i++) {
-                    var artikel = getArtikel();
-
-                    if (artikel[i].anzahl > 0) {
-                        document.write("<tr>")
-                        document.write("<td>")
-                        document.write(artikel[i].anzahl + "x")
-                        document.write("</td>")
-                        document.write("<td>")
-                        document.write(artikel[i].name)
-                        document.write("</td>")
-                        document.write("<td>")
-                        document.write(artikel[i].preis + "€")
-                        document.write("</td>")
-                        document.write("<td>")
-                        document.write((artikel[i].preis) * (artikel[i].anzahl) + "€")
-                        document.write("</td>")
-
-
-                    }
-
-
-                }
-                document.write("</table>")
-                document.write("<br>")
-                document.write("")
-                document.write("<table>")
-                document.write("<th>Gesamtsumme</th>")
-                document.write("<td>")
-                document.write(getArtikelGesamtsumme() + "€")
-                document.write("</table>")
-            </script>
-
-
-        </article>
+                    </iFrame>
+        
+        
     </aside>
     <footer class="mainfooter ">
         <ul>
@@ -130,7 +86,8 @@
         <p class="copyright">&copy;2015 curry.me</p>
 
     </footer>
+
+        <script language="javascript" type="text/javascript" src="./js/script_end.js"></script>
 </body>
-<script language="javascript" type="text/javascript" src="js/script.js"></script>
 
 </html>

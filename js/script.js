@@ -1,16 +1,30 @@
 /*
+Webstorage
+Author: Fabian Sölker
+*/
+
+if (typeof (Storage) !== "undefined") {
+
+    
+} else {
+     alert("Ihr Browser unterstützt keinen Webstorage");
+}
+
+
+
+
+/*
 Warenkorb - Logik
 Author: Fabian Sölker
 */
 
 
 // Objekt für einen Artikel im Warenkorb
-function warenkorb_artikel(nr, name, kurz, lang, grafik, preis) {
-    
-    this.nr = nr;
+function warenkorb_artikel(id, name, beschreibung, grafik, preis) {
+
+    this.id = id;
     this.name = name;
-    this.lang = lang;
-    this.kurz = kurz;
+    this.beschreibung = beschreibung;
     this.grafik = grafik;
     this.preis = preis;
     this.anzahl = 0;
@@ -20,15 +34,17 @@ function warenkorb_artikel(nr, name, kurz, lang, grafik, preis) {
 
 //Mögliche Artikel
 
-var currywurst_1 = new warenkorb_artikel(1, "Berliner Currywurst", "c1c1c1c1c1c1c1c1", "c1c1", "hier fehlt eine url", 2.49);
+var currywurst_1 = new warenkorb_artikel(1, "Berliner Currywurst", "Unser Klassiker", "../media/currywurst1.jpg", 2.49);
 
-var currywurst_2 = new warenkorb_artikel(2, "Currywurst Vegetarisch", "c2c2c2c2c2c2c2c2", "c2c2", "hier fehlt eine url", 4.29);
+var currywurst_2 = new warenkorb_artikel(2, "Currywurst Vegetarisch", "#Hipster #SoWasKauftManDochNurInBerlin #Facepalm", "../media/currywurst1.jpg", 4.29);
 
-var currywurst_3 = new warenkorb_artikel(3, "Geflügel Currywurst", "c2c2c2c2c2c2c2c2", "c3c3", "hier fehlt eine url", 2.49);
+var currywurst_3 = new warenkorb_artikel(3, "Geflügel Currywurst", "Die etwas Andere Currywurst", "../media/currywurst1.jpg", 2.49);
 
 
 //Array mit möglichen Artikeln
 var artikel = new Array(currywurst_1, currywurst_2, currywurst_3);
+
+
 
 //Get Array Artikel
 function getArtikel() {
@@ -48,15 +64,17 @@ function getArtikelGesamtsumme() {
 }
 
 //Hinzufügen
-function add(artikel_nummer) {
+function add(artikel_id) {
 
     for (var i = 0; i < artikel.length; i++) {
 
-        if (artikel[i].nr == artikel_nummer) {
+        if (artikel[i].id == artikel_id) {
             artikel[i].anzahl++;
         }
 
     }
-
-
 }
+
+
+
+
