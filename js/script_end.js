@@ -6,7 +6,7 @@ Author: Fabian Sölker
 
 //Dragstart
 function drag(event) {
-    event.dataTransfer.setData("artikel_id", this.id);
+    event.dataTransfer.setData("artikel_id", event.target.id);
 }
 
 //Allow Drop
