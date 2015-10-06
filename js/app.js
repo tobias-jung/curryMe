@@ -20,13 +20,14 @@ passport.use(new FacebookStrategy({
 
 var app = express();
 
-app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/', passport.authenticate('facebook'));
 
-app.get('/auth/facebook/callback',
+app.get('/login',
     passport.authenticate('facebook', {
         successRedirect: '/',
         failureRedirect: '/login'
     }));
+
 app.use(express.static('../'));
 
 
