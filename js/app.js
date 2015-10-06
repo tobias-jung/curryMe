@@ -58,8 +58,8 @@ app.get('/login', function (req, res) {
     });
 });
 
-app.post('/', passport.authenticate('local'), function (req, res) {
-    res.redirect('/');
+app.post('/login', passport.authenticate('local'), function (req, res) {
+    res.redirect('/login');
 
 });
 
@@ -69,7 +69,7 @@ app.get('/logout', function (req, res) {
 });
 
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 1337;
 
 
 app.listen(port, function () {
