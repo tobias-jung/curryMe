@@ -3,6 +3,7 @@ Warenkorb - Drag and Drop
 Author: Fabian Sölker
 */
 
+//var iframe = document.getElementById("warenkorbFrame");
 
 //Dragstart
 function drag(event) {
@@ -20,8 +21,13 @@ function allowDrop(event) {
 function handleDrop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("artikel_id");
-    var iframe = document.getElementById("warenkorbFrame");
     add(data);
-    iframe.src = iframe.src;
+    refresh("warenkorbFrame");
         
   }
+
+function refresh(ID) {
+ var a = document.getElementById(ID);
+    a.src = a.src;
+    
+}

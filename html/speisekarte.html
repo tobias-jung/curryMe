@@ -6,6 +6,7 @@
 <title>CurryMe</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css">
 <script language="javascript" type="text/javascript" src="../js/script.js"></script>
+<script language="javascript" type="text/javascript" src="../js/script_end.js"></script>
 
 <head>
 </head>
@@ -25,7 +26,7 @@
 
                 for (var i = 0; i < artikel.length; i++) {
 
-                    document.write("<div class=draggableContent draggable=true id=" + artikel[i].id + ">");
+                    document.write("<div class=draggableContent draggable=true ondragstart=drag(event) id=" + artikel[i].id + ">");
                     document.write("<table border=1 id=" + artikel[i].id + ">");
                     document.write("<tr>");
                     document.write("<td>");
