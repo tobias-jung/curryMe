@@ -8,7 +8,7 @@
     <title>CurryMe</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script language="javascript" type="text/javascript" src="./js/script.js"></script>
-
+<script language="javascript" type="text/javascript" src="./js/ajax.js"></script>
 </head>
 
 <body class="body" onload="">
@@ -21,7 +21,7 @@
                     <a href="./html/startseite.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Startseite</a>
                 </li>
                 <li>
-                    <a href="./html/speisekarte.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Speisekarte</a>
+                    <a href="#" onclick = sndReq()>Speisekarte</a>
                 </li>
                 <li>
                     <a href="./html/ueberuns.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Über uns</a>
@@ -42,27 +42,17 @@
     </header>
     <div class="maincontent ">
         <div class="content ">
-            <article class="topcontent ">
-                <content>
-                    <iFrame frameborder="no" src="html/startseite.html" width="100%" height="1000px" id="contentFrame">
-                        <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen.
-                        </p>
-
-                    </iFrame>
-                </content>
-            </article>
+ 
+            //Hier Content via Ajax
+            
 
         </div>
     </div>
     <aside class="top-sidebar ">
 
-        <iFrame frameborder="no" src="html/warenkorb.html" width="100%" height="1000px" id="warenkorbFrame">
-            <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen.
-            </p>
-
-        </iFrame>
-
-
+        //Hier Content via Ajax
+        
+        
     </aside>
     <footer class="mainfooter ">
         <ul>
