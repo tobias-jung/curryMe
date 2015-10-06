@@ -7,6 +7,9 @@ var expressSession = require('express-session');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 
+
+app.use(express.static('../'));
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
@@ -47,7 +50,7 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-app.get('/', function (req, res) {
+app.get('/login', function (req, res) {
 
     res.render('login', {
         isAuthenticated: req.isAuthenticated(),
