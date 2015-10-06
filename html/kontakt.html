@@ -1,28 +1,55 @@
 <html>
-    
-        <meta charset="utf-8">
-    <meta name="Author" content="Fabian Soelker">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CurryMe</title>
-     <link href="../css/style.css" rel="stylesheet" type="text/css">
-    
+
+<meta charset="utf-8">
+<meta name="Author" content="Fabian Soelker">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CurryMe</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+
 <head>
     <title>Kontakt</title>
 </head>
-    
-    <body>
 
-                        <article class="topcontent ">
-                <header>
-                    <h2><a href="# " title="Kontakt">Kontakt</a></h2></header>
-                <content>
-
-  Kontakt.....
-                    
-                </content>
-            </article>
-    
-    
-    </body>
+<body>
+    <form id="form" class="form" name="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete>
+        <h2><a href="# " title="Kontaktiere uns!">Kontaktiere uns!</a></h2></header>
+        <div class="content">
+            <div class="intro"></div>
+            <div id="section0">
+                <div class="field">
+                    <label for="Name">Name:</label>
+                    <input type="text" id="NameId" name="Name" placeholder="Vorname, Nachname" required>
+                </div>
+                <div class="field">
+                    <label for="EMail">E-Mail:</label>
+                    <input type="email" id="EMailId" name="EMail" placeholder="example@email.com" required>
+                </div>
+                <div class="field">
+                    <label for="Telefonnummeroptional">Telefonnummer (optional):</label>
+                    <input type="tel" id="TelefonnummerId" name="Telefonnummeroptional" placeholder="0621/ 123456">
+                </div>
+                <div class="field">
+                    <label for="DeineNachrichtanuns">Deine Nachricht an uns: </label>
+                    <textarea id="DeineNachrichtanuns" name="DeineNachrichtanuns" wrap="soft" required></textarea>
+                </div>
+                <div class="field">
+                    <label for="Bewerteuns1schlechteste5beste">Bewerte uns! (1= schlechteste, 5= beste):</label><span>Supergeil</span>
+                    <input type="radio" value="5" id="Bewerteuns1schlechteste5beste" name="Bewerteuns1schlechteste5beste"><span>Supergeil</span>
+                    <input type="radio" value="5" id="Bewerteuns1schlechteste5beste" name="Bewerteuns1schlechteste5beste"><span>Supergeil</span>
+                    <input type="radio" value="5" id="Bewerteuns1schlechteste5beste" name="Bewerteuns1schlechteste5beste"><span>Supergeil</span>
+                    <input type="radio" value="5" id="Bewerteuns1schlechteste5beste" name="Bewerteuns1schlechteste5beste"><span>Supergeil</span>
+                    <input type="radio" value="5" id="Bewerteuns1schlechteste5beste" name="Bewerteuns1schlechteste5beste">
+                </div>
+                <div class="field">
+                    <div class="edit-options">
+                        <div class="edit"></div>
+                        <div class="delete"></div>
+                    </div>
+                    <input type="submit" id="SubmitId" required>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
 
 </html>
