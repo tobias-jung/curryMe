@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+    <% if(!isAuthenticated) {%>
+        <p>Hallo Besucher,</p>
+        <p>Sie sind derzeit nicht eingeloggt! Bitte loggen Sie sich ein...</p>
+        <form action="" method="post">
+            <input type="text" name="username" placeholder="Benutzername">
+            <input type="password" name="password" placeholder="Passwort">
+            <input type="submit" value="Login">
+        </form>
+        <%} else {%>
+            Willkommen,
+            <%=user.name%>!
+                <a href="/logout">Ausloggen</a>
+                <%}%>
+
+</body>
+
+</html>

@@ -1,36 +1,69 @@
 var express = require('express');
-
-var passport = require('passport'),
-    FacebookStrategy = require('passport-facebook').Strategy;
-
-passport.use(new FacebookStrategy({
-        clientID: FACEBOOK_APP_ID,
-        clientSecret: FACEBOOK_APP_SECRET,
-        callbackURL: "http://localhost:1337/auth/facebook/callback"
-    },
-    function (accessToken, refreshToken, profile, done) {
-        User.findOrCreate(..., function (err, user) {
-            if (err) {
-                return done(err);
-            }
-            done(null, user);
-        });
-    }
-));
-
 var app = express();
 
-app.get('/', passport.authenticate('facebook'));
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+var passport = require('passport');
+var passportLocal = require('passport-local');
 
-app.get('/login',
-    passport.authenticate('facebook', {
-        successRedirect: '/',
-        failureRedirect: '/login'
-    }));
+app.set('view engine', 'ejs');
 
-app.use(express.static('../'));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(cookieParser());
+app.use(expressSession({
+    secret: process.env.SESSION_SECRET || 'secret',
+    resave: false,
+    saveUnitialized: false
 
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new passportLocal.Strategy(function (username, password, done) {
+    //Hier würde der DB-Aufruf stehen!
+    if (username === password) {
+        done(null, {
+            id: username,
+            name: username
+        });
+    } else {
+        done(null, null);
+    }
+}));
+
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+    //Anfrage an DB
+    done(null, {
+        id: id,
+        name: id
+    });
+});
+
+app.get('/', function (req, res) {
+
+    res.render('login', {
+        isAuthenticated: req.isAuthenticated(),
+        user: req.user
+    });
+});
+
+app.post('/', passport.authenticate('local'), function (req, res) {
+    res.redirect('/');
+
+});
+
+app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+});
 
 
 var port = process.env.PORT || 1337;
