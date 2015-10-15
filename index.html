@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CurryMe</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script language="javascript" type="text/javascript" src="./js/script.js"></script>
-<script language="javascript" type="text/javascript" src="./js/ajax.js"></script>
 </head>
 
 <body class="body" onload="">
@@ -21,7 +19,7 @@
                     <a href="./html/startseite.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Startseite</a>
                 </li>
                 <li>
-                    <a href="#" onclick = sndReq()>Speisekarte</a>
+                    <a href="#" onclick = callSpeisekarte()>Speisekarte</a>
                 </li>
                 <li>
                     <a href="./html/ueberuns.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Über uns</a>
@@ -41,7 +39,7 @@
         </nav>
     </header>
     <div class="maincontent ">
-        <div class="content ">
+        <div class="content " id="masterConent">
  
             //Hier Content via Ajax
             
@@ -81,7 +79,6 @@
 
     </footer>
 
-    <script language="javascript" type="text/javascript" src="./js/script_end.js"></script>
 </body>
-
+    <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
 </html>
