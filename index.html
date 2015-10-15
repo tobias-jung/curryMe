@@ -15,24 +15,23 @@
         <nav>
             <ul>
                 <li class="active">
+                    <a href="#">Startseite</a>
+                </li>
+                <li>
+                    <a href="#">Speisekarte</a>
+                </li>
+                <li>
+                    <a href="#">Über uns</a>
+                </li>
+                <li>
+                    <a href="#">Kontakt</a>
+                </li>
+                <li>
 
-                    <a href="./html/startseite.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Startseite</a>
+                    <a href="#">Login</a>
                 </li>
                 <li>
-                    <a href="#" onclick = callSpeisekarte()>Speisekarte</a>
-                </li>
-                <li>
-                    <a href="./html/ueberuns.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Über uns</a>
-                </li>
-                <li>
-                    <a href="./html/kontakt.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Kontakt</a>
-                </li>
-                <li>
-
-                    <a href="./html/login.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Login</a>
-                </li>
-                <li>
-                    <a href="./html/impressum.html" onclick="document.getElementById('contentFrame').src = this.href;return false;">Impressum</a>
+                    <a href="#">Impressum</a>
 
                 </li>
             </ul>
@@ -40,17 +39,17 @@
     </header>
     <div class="maincontent ">
         <div class="content " id="masterConent">
- 
-            //Hier Content via Ajax
-            
-
+            <x-kontakt></x-kontakt>
+            <log-in></log-in>
+            <x-impressum></x-impressum>
+            <ueber-uns></ueber-uns>
         </div>
     </div>
     <aside class="top-sidebar ">
 
         //Hier Content via Ajax
-        
-        
+
+
     </aside>
     <footer class="mainfooter ">
         <ul>
@@ -80,5 +79,6 @@
     </footer>
 
 </body>
-    <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
+<script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
+
 </html>
