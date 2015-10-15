@@ -1,23 +1,31 @@
 resObjekt = new XMLHttpRequest();
+var artikel;
 
 
 function sndReq() {
-    resObjekt.open('get', './artikel.json', true);
+    resObjekt.open('get', '../json/artikel.json', false);
     resObjekt.onreadystatechange = handleResponse;
-    resObjekt.send(null);
+    resObjekt.send();
     
     
 }
 
+resObjekt.onreadystatechange = handleResponse;
+
 
 function handleResponse() {
-    if(resObjekt.readystate == 4)
+    if(resObjekt.readyState == 4)
     {
-     document.getElementById("content").innerHTML = resObjekt.responseText;
+                    artikel = JSON.parse( resObjekt.responseText );
+        
         
         
     }
+    
+    
+}
+
+function getArtikel() {
  
-    
-    
+    return artikel;
 }
