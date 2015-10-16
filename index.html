@@ -9,9 +9,9 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="body" onload="">
+<body class="body">
     <header class="mainheader">
-        <img src="media/logo.png">
+        <img src="media/logo.png" alt="CurryMe">
         <nav>
             <ul>
                 <li class="active">
@@ -34,25 +34,24 @@
                     <a href="#">Impressum</a>
 
                 </li>
+                <li>
+                    <a class="warenkorb" href="#">Warenkorb</a>
+
+                </li>
             </ul>
         </nav>
     </header>
-    <div class="maincontent ">
-        <div class="content " id="masterConent">
-            <x-kontakt></x-kontakt>
-            <log-in></log-in>
-            <x-impressum></x-impressum>
-            <ueber-uns></ueber-uns>
-        </div>
+    <div class="maincontent">
+        <x-kontakt></x-kontakt>
+        <log-in></log-in>
+        <x-impressum></x-impressum>
+        <ueber-uns></ueber-uns>
     </div>
     <aside class="top-sidebar ">
-
         //Hier Content via Ajax
-
-
     </aside>
     <footer class="mainfooter ">
-        <ul>
+        <ul class="kontakt">
             <li>
                 <h2>Anfahrt</h2></li>
             <li>
@@ -62,7 +61,7 @@
                 <p>68163 Mannheim</p>
             </li>
         </ul>
-        <ul>
+        <ul class="kontakt">
             <li>
                 <h2>Kontakt</h2></li>
             <li>
@@ -77,7 +76,6 @@
         <p class="copyright">&copy;2015 curry.me</p>
 
     </footer>
-
 </body>
 <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
 
