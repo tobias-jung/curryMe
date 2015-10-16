@@ -141,7 +141,11 @@ function handleDrop(event) {
 
 //Function Call
 
+<<<<<<< HEAD
 function callFunction(Element) {
+=======
+function callSpeisekarte() {
+>>>>>>> origin/master
 
     document.getElementById("masterContent").innerHTML = Element;
 
