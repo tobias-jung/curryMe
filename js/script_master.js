@@ -91,7 +91,7 @@ function refresh(ID) {
 
 //Function Call
 
-function callSpeisekarte() {
+function callKontakt() {
 
     document.getElementById("masterContent").innerHTML = 'Hallo';
 
