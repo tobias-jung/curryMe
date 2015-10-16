@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CurryMe</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    
 </head>
 
 <body class="body" onload="">
@@ -24,7 +25,7 @@
                     <a href="#">Über uns</a>
                 </li>
                 <li>
-                    <a href="#" onclick="callKontakt()">Kontakt</a>
+                    <a href="#" onclick="callFunction(' <x-kontakt> </x-kontakt> ')">Kontakt</a>
                 </li>
                 <li>
 
@@ -38,16 +39,17 @@
         </nav>
     </header>
     <div class="maincontent ">
-        <div class="content " id="masterConent">
+        <div class="content " id="masterContent">
             <x-kontakt></x-kontakt>
             <log-in></log-in>
             <x-impressum></x-impressum>
             <ueber-uns></ueber-uns>
+            
         </div>
     </div>
-    <aside class="top-sidebar ">
+    <aside class="top-sidebar" id="warenkorb-sidebar">
 
-        //Hier Content via Ajax
+// Warenkorb
 
 
     </aside>
@@ -80,6 +82,7 @@
 
  
 </body>
+
    <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
 
 </html>

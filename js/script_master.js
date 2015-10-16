@@ -78,22 +78,72 @@ function handleDrop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("artikel_id");
     add(data);
-    refresh("warenkorbFrame");
+    document.getElementById("warenkorb-sidebar").innerHTML = 
+        "<article>
+            <h2><a href="#">Warenkorb</a></h2>
+
+
+            <script language="javascript" type="text/javascript">
+                add(1);
+                add(1);
+                add(2);
+                add(3);
+
+
+                document.write("<table ondrop=handleDrop(event) ondragover=allowDrop(event)>")
+                document.write("<th>Anzahl</th>")
+                document.write("<th>Produkt</th>")
+                document.write("<th>Einzelpreis</th>")
+                document.write("<th>Gesamt</th>")
+
+                for (var i = 0; i < getArtikel().length; i++) {
+                    var artikel = getArtikel();
+
+                    if (artikel[i].anzahl > 0) {
+                        document.write("<tr>")
+                        document.write("<td>")
+                        document.write(artikel[i].anzahl + "x")
+                        document.write("</td>")
+                        document.write("<td>")
+                        document.write(artikel[i].name)
+                        document.write("</td>")
+                        document.write("<td>")
+                        document.write(artikel[i].preis + "€")
+                        document.write("</td>")
+                        document.write("<td>")
+                        document.write((artikel[i].preis) * (artikel[i].anzahl) + "€")
+                        document.write("</td>")
+                        document.write("</tr>")
+
+
+                    }
+
+
+                }
+                document.write("</table>")
+                document.write("<br>")
+                document.write("")
+                document.write("<table>")
+                document.write("<th>Gesamtsumme</th>")
+                document.write("<td>")
+                document.write(getArtikelGesamtsumme() + "€")
+                document.write("</table>")
+            </script>
+
+
+        </article>"
+        
+        
 
 }
 
-function refresh(ID) {
-    var a = document.getElementById(ID);
-    a.src = a.src;
-
-}
 
 
 //Function Call
 
-function callKontakt() {
+function callFunction(Element) {
 
-    document.getElementById("masterContent").innerHTML = 'Hallo';
+    document.getElementById("masterContent").innerHTML = Element;
 
 
 
