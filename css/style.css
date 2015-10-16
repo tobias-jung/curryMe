@@ -2,7 +2,8 @@
             /* CSS Document */
             
             body {
-                background-color: lightgray;
+                background-image: url(../media/currybg.png);
+                background-repeat: repeat;
                 color: #000305;
                 font-size: 87.5%;
                 font-family: Arial, 'Lucida Sans Unicode';
@@ -58,7 +59,7 @@
             
             .mainheader nav ul {
                 list-style: none;
-                margin: 0 auto;
+                margin: 0 auto 0 -40px;
             }
             
             .mainheader nav ul li {
@@ -93,6 +94,13 @@
                 display: none;
             }
             
+            .allcontent {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                
+}
+            
             .maincontent {
                 width: 70%;
                 line-height: 25px;
@@ -101,35 +109,19 @@
                 -webkit-border-radius: 5px;
                 border-radius: 5px;
                 background-color: white;
-            }
-            
-            .topcontent {
-                background-color: white;
-                -moz-border-radius: 5px;
-                -webkit-border-radius: 5px;
-                border-radius: 5px;
-                padding: 3% 5%;
-                margin-top: 14px;
-            }
-            
-            .bottomcontent {
-                background-color: white;
-                -moz-border-radius: 5px;
-                -webkit-border-radius: 5px;
-                border-radius: 5px;
-                padding: 3% 5%;
-                margin-top: 2px;
+                margin: 10px 0 10px 10px;
+                padding: 10px;
             }
             
             .top-sidebar {
                 float: left;
-                width: 25%;
+                width: 20%;
                 background-color: white;
                 -moz-border-radius: 5px;
                 -webkit-border-radius: 5px;
                 border-radius: 5px;
-                margin: 1% 0 2% 3%;
-                padding: 2% 3%;
+                margin: 10px 0 10px 10px;
+                padding: 10px;
             }
             
             .postinfo {
@@ -235,7 +227,9 @@
                 margin-bottom: 10px;
             }
             /* Form End */
-            
+            .copyright {
+                    margin: 71px 10px 0 0;
+                }
             @media only screen and (min-width: 150px) and (max-width: 800px) {
                 .body {
                     width: 100%;
@@ -329,8 +323,8 @@
                     display: none;
                 }
                 .copyright {
-                    margin: 5px 10px 5px 0px;
-                    display: block;
-                    float: right;
+                    text-align: right;
+                    padding-right: 20px;
+                    padding-bottom: 10px
                 }
             }
