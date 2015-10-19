@@ -156,6 +156,40 @@ function callKontakt() {
 
     document.getElementById("masterContent").innerHTML = textkontakt.innerHTML;
 
+}
 
+function callUeberUns() {
+
+    document.getElementById("masterContent").innerHTML = textueberuns.innerHTML;
+
+}
+
+function callLogIn() {
+
+    document.getElementById("masterContent").innerHTML = textlogin.innerHTML;
+
+}
+
+function callImpressum() {
+
+    document.getElementById("masterContent").innerHTML = textimpressum.innerHTML;
+
+}
+
+function callStartseite() {
+
+    document.getElementById("masterContent").innerHTML = "<h2>Startseite</h2>";
+
+}
+
+function callSpeisekarte() {
+
+    document.getElementById("masterContent").innerHTML = "<h2>Speisekarte<h/2>";
+
+}
+
+function callWarenkorb() {
+
+    document.getElementById("masterContent").innerHTML = "<h2>Warenkorb</h2>";
 
 }
