@@ -35,7 +35,7 @@ function getArtikelGesamtsumme() {
     var gesamtsumme;
     gesamtsumme = 0.00;
     for (var i = 0; i < artikel.length; i++) {
-        gesamtsumme = gesamtsumme + ((artikel[i].preis))
+        gesamtsumme = gesamtsumme + ((artikel[i].preis) * artikel[i].anzahl);
     }
     return gesamtsumme;
 
@@ -63,7 +63,6 @@ Author: Fabian Sölker
 
 //Dragstart
 function drag(event) {
-        console.log(event);
     event.dataTransfer.setData("artikel_id", event.srcElement.id);
     
 }
@@ -89,9 +88,9 @@ function handleDrop(event) {
     var tabelle = document.createElement("table");
     tabelle.border = 0;
 
-
-    var heading = document.createElement("th");
+    var heading = document.createElement("tr");
     heading.innerHTML = "<th>Anzahl</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th>";
+    
     tabelle.appendChild(heading);
 
     for (var i = 0; i < getArtikel().length; i++) {
@@ -100,7 +99,7 @@ function handleDrop(event) {
         if (artikel[i].anzahl > 0) {
 
             var position = document.createElement("tr")
-            position.innerHTML = artikel[i].anzahl + "x</td><td>" + artikel[i].name + "</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td>"
+            position.innerHTML = "<td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].name + "</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td>"
 
             tabelle.appendChild(position);
 
@@ -109,9 +108,14 @@ function handleDrop(event) {
 
         }
 
+                var gesamtsummeTabelle = document.createElement("table");
+        gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
+        
+        
         document.getElementById("warenkorb-sidebar").appendChild(tabelle);
 
     }
+                document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
 
 
 }
