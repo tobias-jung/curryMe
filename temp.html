@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="Author" content="Sven Cieslok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurryMeTest</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <form id="form" class="form" name="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete>
+        <h2><a href="# " title="Kontaktiere uns!">Kontaktiere uns!</a></h2></header>
+        <div class="content">
+            <div class="intro"></div>
+            <div id="section0">
+                <div class="field">
+                    <label for="Name">Name:</label>
+                    <input type="text" id="NameId" name="Name" placeholder="Vorname, Nachname" required>
+                </div>
+                <div class="field">
+                    <label for="EMail">E-Mail:</label>
+                    <input type="email" id="EMailId" name="EMail" placeholder="example@email.com" required>
+                </div>
+                <div class="field">
+                    <label for="Telefonnummeroptional">Telefonnummer (optional):</label>
+                    <input type="tel" id="TelefonnummerId" name="Telefonnummeroptional" placeholder="0621/ 123456">
+                </div>
+                <div class="field">
+                    <label for="DeineNachrichtanuns">Deine Nachricht an uns: </label>
+                    <textarea id="DeineNachrichtanuns" name="DeineNachrichtanuns" wrap="soft" required></textarea>
+                </div>
+                <div class="field">
+                    <div>
+                        <input type="radio" name="radio" id="radio1" class="radio" checked/>
+                        <label for="radio1">Super</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="radio" id="radio2" class="radio" />
+                        <label for="radio2">Super</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="radio" id="radio3" class="radio" />
+                        <label for="radio3">Super</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="radio" id="radio4" class="radio" />
+                        <label for="radio4">Super</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="edit-options">
+                        <div class="edit"></div>
+                        <div class="delete"></div>
+                    </div>
+                    <input type="submit" id="SubmitId" required>
+                </div>
+            </div>
+        </div>
+    </form>
+    <style>
+        form {}
+        
+        div {
+            clear: both;
+        }
+        
+        label {
+            width: 200px;
+            border-radius: 3px;
+            border: 1px solid #D1D3D4
+        }
+        /* hide input */
+        
+        input.radio:empty {
+            margin-left: -999px;
+        }
+        /* style label */
+        
+        input.radio:empty ~ label {
+            position: relative;
+            float: left;
+            line-height: 2.5em;
+            text-indent: 3.25em;
+            margin-top: 2em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        input.radio:empty ~ label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+        /* toggle hover */
+        
+        input.radio:hover:not(:checked) ~ label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #C2C2C2;
+        }
+        
+        input.radio:hover:not(:checked) ~ label {
+            color: #888;
+        }
+        /* toggle on */
+        
+        input.radio:checked ~ label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #9CE2AE;
+            background-color: #4DCB6D;
+        }
+        
+        input.radio:checked ~ label {
+            color: #777;
+        }
+        /* radio focus */
+        
+        input.radio:focus ~ label:before {
+            box-shadow: 0 0 0 3px #999;
+        }
+    </style>
+</body>
+
+</html>
