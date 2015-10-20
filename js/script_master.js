@@ -142,17 +142,13 @@ textkontakt.innerHTML = '<form id="form" class="form" name="form" method="post" 
 // Über uns
 var hostueberuns = document.querySelector('ueber-uns');
 var textueberuns = hostueberuns.createShadowRoot();
-textueberuns.innerHTML = '<h1>Über uns</h1><p>Currywurst - Tradition seit 2015
-
-    <img src="http://www.kath-akademie-bayern.de/tl_files/Kath_Akademie_Bayern/Bilder/Akademie_im_Ueberblick/Mitarbeiter/Kueche.jpg">
-    
-    </p><style>h1</style>';
+textueberuns.innerHTML = '<h1>Über uns</h1><p>Unser freundliches und motiviertes Team heißt alle Gäste herzlich willkommen. Wenn Sie Fragen oder Wünsche zu uns, unseren Leistungen oder bei einem Ihrer Besuche bei uns haben, stehen wir Ihnen gern mit Rat und Tat zur Seite - sprechen Sie uns einfach an.</p><p><h1>Unser Team:</h1><table><tr><th><h2>Chefkoch Manfed Käfer</h2>Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</th> <th><img src="media/kuechenchef.png"></th> </tr></table> <table><tr><th><img src="media/kuechenhilfe.png"></th> <th><h2>Restaurant Managerin Stefanie Heidecker</h2>Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</th> </tr></table></p> <b> Der Rest von unserem Team:<img src="http://westfalium.de/wp-content/uploads/2015/03/K%C3%BCchenteam.jpg" width="" height=""><br><h4> Von Rechts nach Links: Heiko Mueller, Tobias Heinke, Fabian Skutnik, Nina Schlang, Jurek Beckmann, Jannis Blankenhagen und Dennis Iuliano</h4><style>h1{color:black;}</style>';
 
 
-//Log In
+
 var hostlogin = document.querySelector('log-in');
 var textlogin = hostlogin.createShadowRoot();
-textlogin.innerHTML = '<header><h2><a href="# " title="Login">Kunden-Login</a></h2></header><content>Hier entsteht der Kunden-Login!<form action="" method="post"><input type="text" name="username" placeholder="Benutzername"><input type="password" name="password" placeholder="Passwort"><input type="submit" value="Login"></form><a href="/auth/facebook">Login with Facebook</a></content><style>h1{color:red;}</style>';
+textlogin.innerHTML = '<header><h2><a href="# " title="Login">Kunden-Login</a></h2></header><content>Hier entsteht der Kunden-Login!<form action="" method="post"><input type="text" name="username" placeholder="Benutzername"><input type="password" name="password" placeholder="Passwort"><input type="submit" value="Login"></form><a href="/auth/facebook">Login with Facebook</a></content><style>h1{color:black;}</style>';
 
 
 var hostimpressum = document.querySelector('x-impressum');
