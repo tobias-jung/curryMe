@@ -116,6 +116,14 @@ function handleDrop(event) {
 
     }
                 document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
+    
+                   var bild = document.createElement("div");
+               var br = document.createElement("br");
+    bild.innerHTML = "<img src='media/einkaufswagen.png' width='100%' height='100%' onclick='callWarenkorb()'>"
+    
+                    document.getElementById("warenkorb-sidebar").appendChild(br);
+                    document.getElementById("warenkorb-sidebar").appendChild(br);
+                    document.getElementById("warenkorb-sidebar").appendChild(bild);
 
 
 }
@@ -130,11 +138,8 @@ textkontakt.innerHTML = '<form id="form" class="form" name="form" method="post" 
 // Über uns
 var hostueberuns = document.querySelector('ueber-uns');
 var textueberuns = hostueberuns.createShadowRoot();
-<<<<<<< HEAD
 textueberuns.innerHTML = '<h1>Über uns</h1><p>Unser freundliches und motiviertes Team heißt alle Gäste herzlich willkommen. Wenn Sie Fragen oder Wünsche zu uns, unseren Leistungen oder bei einem Ihrer Besuche bei uns haben, stehen wir Ihnen gern mit Rat und Tat zur Seite - sprechen Sie uns einfach an.</p><br><h1>Unser Team:</h1><table><tr><th><h1>Chefkoch Manfed Käfer</h1>Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</th><th><img src="media/kuechenchef.png"></th> </tr></table> <table><tr><th><img src="media/kuechenhilfe.png"></th> <th><h1>Restaurant Managerin Stefanie Heidecker</h1>Stefanie Heidecker absolvierte ihrem Bacherlorabschluss in Wirtschaftsmathemaktik an der Universtität Karlsruhe. Sie ist zudem Initiatorin des Leadership-Programms und Partnerin von Manager für Menschen. Ihre Aufgabe besteht aus dem Coaching für Veränderungsprozesse sowie Ansprechpartnerin für Fach- und Führungskräfte und Unternehmen im Raum Frankfurt. </th> </tr></table></p> <b> Der Rest von unserem Team:<img src="http://westfalium.de/wp-content/uploads/2015/03/K%C3%BCchenteam.jpg" width="" height=""><br><h4> <u>Von Rechts nach Links:</u> Heiko Mueller, Tobias Heinke, Fabian Skutnik, Nina Schlang, Jurek Beckmann, Jannis Blankenhagen und Dennis Iuliano</h4><style>h1{font-size: 17pt;} th,td,td,table{font-family: Arial; line-height: 1.5; font-weight: 400;}</style>';
-=======
 textueberuns.innerHTML = '<header><h2><a href="# " title="Über uns">Über uns</a></h2></header><content><p>Unser freundliches und motiviertes Team heißt alle Gäste herzlich willkommen. Wenn Sie Fragen oder Wünsche zu uns, unseren Leistungen oder bei einem Ihrer Besuche bei uns haben, stehen wir Ihnen gern mit Rat und Tat zur Seite - sprechen Sie uns einfach an.</p><p><strong>Vertreten durch: </strong><table><tr><th><h2>Chefkoch Manfed Käfer</h2>Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</th><th><img src="media/kuechenchef.png"></th> </tr></table> <table><tr><th><img src="media/kuechenhilfe.png"></th> <th><h2>Restaurant Managerin Stefanie Heidecker</h2>Stefanie Heidecker absolvierte ihrem Bacherlorabschluss in Wirtschaftsmathemaktik an der Universtität Karlsruhe. Sie ist zudem Initiatorin des Leadership-Programms und Partnerin von Manager für Menschen. Ihre Aufgabe besteht aus dem Coaching für Veränderungsprozesse sowie Ansprechpartnerin für Fach- und Führungskräfte und Unternehmen im Raum Frankfurt. </th> </tr></table></p> <b> Der Rest von unserem Team:<img src="http://westfalium.de/wp-content/uploads/2015/03/K%C3%BCchenteam.jpg" width="" height=""><br><h4> <u>Von Rechts nach Links:</u> Heiko Mueller, Tobias Heinke, Fabian Skutnik, Nina Schlang, Jurek Beckmann, Jannis Blankenhagen und Dennis Iuliano</h4></content><style>h1{color:black;}</style>';
->>>>>>> origin/master
 
 
 
@@ -191,7 +196,10 @@ function callSpeisekarte() {
 
 
 
+    if(typeof(artikel) == "undefined")
+    {
     sndReq();
+    }
 
     var artikel = getArtikel();
     var idProdukt = 1;
@@ -229,6 +237,44 @@ function callSpeisekarte() {
 
 function callWarenkorb() {
 
-    document.getElementById("masterContent").innerHTML = "<h2>Warenkorb</h2>";
+    var myNode = document.getElementById("masterContent");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+
+    var tabelle = document.createElement("table");
+    tabelle.border = 1;
+
+    var heading = document.createElement("tr");
+    heading.innerHTML = "<th>Abbildung</th><th>Produkt</th><th>Anzahl</th><th>Einzelpreis</th><th>Gesamt</th>";
+    
+    tabelle.appendChild(heading);
+
+    for (var i = 0; i < getArtikel().length; i++) {
+        var artikel = getArtikel();
+
+        if (artikel[i].anzahl > 0) {
+
+            var position = document.createElement("tr")
+            position.innerHTML = "<td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td>"
+
+            tabelle.appendChild(position);
+
+
+
+
+        }
+
+                var gesamtsummeTabelle = document.createElement("table");
+        gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
+        
+        
+        document.getElementById("masterContent").appendChild(tabelle);
+
+    }
+                document.getElementById("masterContent").appendChild(gesamtsummeTabelle);
+
+                
 
 }
+
