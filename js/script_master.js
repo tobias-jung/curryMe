@@ -63,7 +63,9 @@ Author: Fabian Sölker
 
 //Dragstart
 function drag(event) {
-    event.dataTransfer.setData("artikel_id", event.target.id);
+        console.log(event);
+    event.dataTransfer.setData("artikel_id", event.srcElement.id);
+    
 }
 
 //Allow Drop
@@ -78,60 +80,42 @@ function handleDrop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("artikel_id");
     add(data);
-    document.getElementById("warenkorb-sidebar").innerHTML = 
-        "<article> "+
-            "<h2><a href='#'>Warenkorb</a></h2> "+
-                add(1);
-                add(1);
-                add(2);
-                add(3);
+
+    var myNode = document.getElementById("warenkorb-sidebar");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+
+    var tabelle = document.createElement("table");
+    tabelle.border = 0;
 
 
-                document.write("<table ondrop=handleDrop(event) ondragover=allowDrop(event)>")
-                document.write("<th>Anzahl</th>")
-                document.write("<th>Produkt</th>")
-                document.write("<th>Einzelpreis</th>")
-                document.write("<th>Gesamt</th>")
+    var heading = document.createElement("th");
+    heading.innerHTML = "<th>Anzahl</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th>";
+    tabelle.appendChild(heading);
 
-                for (var i = 0; i < getArtikel().length; i++) {
-                    var artikel = getArtikel();
+    for (var i = 0; i < getArtikel().length; i++) {
+        var artikel = getArtikel();
 
-                    if (artikel[i].anzahl > 0) {
-                        document.write("<tr>")
-                        document.write("<td>")
-                        document.write(artikel[i].anzahl + "x")
-                        document.write("</td>")
-                        document.write("<td>")
-                        document.write(artikel[i].name)
-                        document.write("</td>")
-                        document.write("<td>")
-                        document.write(artikel[i].preis + "€")
-                        document.write("</td>")
-                        document.write("<td>")
-                        document.write((artikel[i].preis) * (artikel[i].anzahl) + "€")
-                        document.write("</td>")
-                        document.write("</tr>")
+        if (artikel[i].anzahl > 0) {
+
+            var position = document.createElement("tr")
+            position.innerHTML = artikel[i].anzahl + "x</td><td>" + artikel[i].name + "</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td>"
+
+            tabelle.appendChild(position);
 
 
-                    }
 
 
-                }
-                document.write("</table>")
-                document.write("<br>")
-                document.write("")
-                document.write("<table>")
-                document.write("<th>Gesamtsumme</th>")
-                document.write("<td>")
-                document.write(getArtikelGesamtsumme() + "€")
-                document.write("</table>")
+        }
 
+        document.getElementById("warenkorb-sidebar").appendChild(tabelle);
 
-        "</article>"
-        
-        
+    }
+
 
 }
+
 
 
 //Custom Elements
@@ -195,47 +179,47 @@ function callStartseite() {
 
 function callSpeisekarte() {
 
-    document.getElementById("masterContent").innerHTML = 
-     "<article class='topcontent '>"+
-        "<header>"+
-            "<h2><a href='# ' title='Speisekarte'>Speisekarte</a></h2></header>"+
-        "<content>"+
+    var myNode = document.getElementById("masterContent");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
 
 
-            "<script language='javascript' type='text/javascript'>"+
-                
-                sndReq();
-                
-                var artikel = getArtikel();
- 
 
-                for (var i = 0; i < artikel.length; i++) {
 
-                    document.write("<div class=draggableContent draggable=true ondragstart=drag(event) id=" + artikel[i].id + ">");
-                    document.write("<table border=1 id=" + artikel[i].id + ">");
-                    document.write("<tr>");
-                    document.write("<td>");
-                    document.write("<img src = " + artikel[i].grafik + ">");
-                    document.write("</td>");
-                    document.write("<td>");
-                    document.write(artikel[i].name)
-                    document.write("</td>")
-                    document.write("<td>")
-                    document.write(artikel[i].beschreibung)
-                    document.write("</td>")
-                    document.write("<td>")
-                    document.write((artikel[i].preis) + "€")
-                    document.write("</td>")
-                    document.write("</tr>")
-                    document.write("</table>")
-                    document.write("<br>");
-                    document.write("</div>");
-                }
+    sndReq();
 
-            "</script>"+
+    var artikel = getArtikel();
+    var idProdukt = 1;
 
-        "</content>"+
-    "</article>"
+
+    for (var i = 0; i < artikel.length; i++) {
+
+        var divSpeisekarte = document.createElement("div");
+
+
+        var postenDiv = document.createElement("div")
+        postenDiv.draggable = true;
+        postenDiv.id = idProdukt;
+        idProdukt = idProdukt + 1;
+        postenDiv.ondragstart = drag;
+
+
+        var posten = document.createElement("table");
+        posten.border = 1;
+        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td></tr>"
+
+        postenDiv.appendChild(posten);
+        var divBR = document.createElement("br");
+        divSpeisekarte.appendChild(postenDiv);
+
+        document.getElementById("masterContent").appendChild(divSpeisekarte);
+        document.getElementById("masterContent").appendChild(divBR);
+    }
+
+
+
+
 
 }
 
