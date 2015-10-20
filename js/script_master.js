@@ -184,7 +184,47 @@ function callStartseite() {
 
 function callSpeisekarte() {
 
-    document.getElementById("masterContent").innerHTML = "<h2>Speisekarte<h/2>";
+    document.getElementById("masterContent").innerHTML = 
+     "<article class='topcontent '>"+
+        "<header>"+
+            "<h2><a href='# ' title='Speisekarte'>Speisekarte</a></h2></header>"+
+        "<content>"+
+
+
+            "<script language='javascript' type='text/javascript'>"+
+                
+                sndReq();
+                
+                var artikel = getArtikel();
+ 
+
+                for (var i = 0; i < artikel.length; i++) {
+
+                    document.write("<div class=draggableContent draggable=true ondragstart=drag(event) id=" + artikel[i].id + ">");
+                    document.write("<table border=1 id=" + artikel[i].id + ">");
+                    document.write("<tr>");
+                    document.write("<td>");
+                    document.write("<img src = " + artikel[i].grafik + ">");
+                    document.write("</td>");
+                    document.write("<td>");
+                    document.write(artikel[i].name)
+                    document.write("</td>")
+                    document.write("<td>")
+                    document.write(artikel[i].beschreibung)
+                    document.write("</td>")
+                    document.write("<td>")
+                    document.write((artikel[i].preis) + "€")
+                    document.write("</td>")
+                    document.write("</tr>")
+                    document.write("</table>")
+                    document.write("<br>");
+                    document.write("</div>");
+                }
+
+            "</script>"+
+
+        "</content>"+
+    "</article>"
 
 }
 
