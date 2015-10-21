@@ -94,7 +94,7 @@ function handleDrop(event) {
     tabelle.appendChild(heading);
 
     for (var i = 0; i < getArtikel().length; i++) {
-        var artikel = getArtikel();
+
 
         if (artikel[i].anzahl > 0) {
 
@@ -196,12 +196,11 @@ function callSpeisekarte() {
 
 
 
-    if(typeof(artikel) == "undefined")
+    if(typeof(getArtikel()) == "undefined")
     {
     sndReq();
     }
 
-    var artikel = getArtikel();
     var idProdukt = 1;
 
 
@@ -251,7 +250,6 @@ function callWarenkorb() {
     tabelle.appendChild(heading);
 
     for (var i = 0; i < getArtikel().length; i++) {
-        var artikel = getArtikel();
 
         if (artikel[i].anzahl > 0) {
 
