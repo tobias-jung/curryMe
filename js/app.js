@@ -55,6 +55,7 @@ app.get('/', function (req, res) {
     res.render('login', {
         isAuthenticated: req.isAuthenticated(),
         user: req.user
+
     });
 });
 

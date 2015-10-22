@@ -35,7 +35,6 @@
 
                 </li>
                 <li>
-
                     <a href="#" onclick="callLogIn()">Login</a>
                 </li>
                 <li>
@@ -64,6 +63,7 @@
             <div style="display: none">
                 <x-kontakt></x-kontakt>
                 <log-in></log-in>
+                <x-logout></x-logout>
                 <x-impressum></x-impressum>
                 <ueber-uns></ueber-uns>
                 <x-startseite></x-startseite>
@@ -322,12 +322,20 @@
     </style>
 </template>
 <template id="login">
+    <p>Lieber Besucher,</p>
+    <p>derzeit sind Sie nicht eingeloggt. Bitte loggen Sie sich     ein!</p>
     <form action="" method="post">
             <input type="text" name="username" placeholder="Benutzername">
             <input type="password" name="password" placeholder="Passwort">
             <input type="submit" value="Login">
         </form>
+    <script>var online=true;</script>
 </template>
+
+<template id="logout">
+    <p>Sie wurden ausgeloggt!</p>
+</template>
+
 <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
 
 
