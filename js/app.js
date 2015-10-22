@@ -50,7 +50,7 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-app.get('/login', function (req, res) {
+app.get('/', function (req, res) {
 
     res.render('login', {
         isAuthenticated: req.isAuthenticated(),
@@ -58,12 +58,12 @@ app.get('/login', function (req, res) {
     });
 });
 
-app.post('/login', passport.authenticate('local'), function (req, res) {
-    res.redirect('/login');
+app.post('/', passport.authenticate('local'), function (req, res) {
+    res.redirect('/');
 
 });
 
-app.get('/logout', function (req, res) {
+app.get('/', function (req, res) {
     req.logout();
     res.redirect('/');
 });
