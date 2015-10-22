@@ -148,7 +148,7 @@ var hostlogin = document.querySelector('log-in');
 var textlogin = hostlogin.createShadowRoot();
 textlogin.innerHTML = document.getElementById("login").innerHTML;
 
-var hostlogout = document.querySelector('logout');
+var hostlogout = document.querySelector('log-out');
 var textlogout = hostlogout.createShadowRoot();
 textlogout.innerHTML = document.getElementById("logout").innerHTML;
 
@@ -188,9 +188,7 @@ function callLogIn() {
 }
 
 function callImpressum() {
-
     document.getElementById("swap").innerHTML = textimpressum.innerHTML;
-
 }
 
 function callStartseite() {
