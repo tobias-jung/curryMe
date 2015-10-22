@@ -219,8 +219,9 @@ function callSpeisekarte() {
 
 
         var posten = document.createElement("table");
+        posten.className = "produkte";
         posten.border = 1;
-        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td></tr>"
+        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td width='" + ((document.getElementById("swap").clientWidth) * 0.15) + "'>" + artikel[i].name + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.2) + "'>" + artikel[i].beschreibung + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.1) + "'>" + artikel[i].preis + "€</td></tr>"
 
         postenDiv.appendChild(posten);
         var divBR = document.createElement("br");
