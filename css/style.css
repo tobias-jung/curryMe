@@ -98,10 +98,9 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-                
-}
+            }
             
-            .maincontent {
+            .swap {
                 width: 70%;
                 line-height: 25px;
                 float: left;
@@ -172,6 +171,13 @@
             }
             
             .content {
+                padding: 30px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                float: left;
+                width: 70%;
+                background-color: white;
                 margin: 0px;
             }
             
@@ -227,9 +233,11 @@
                 margin-bottom: 10px;
             }
             /* Form End */
+            
             .copyright {
-                    margin: 71px 10px 0 0;
-                }
+                margin: 71px 10px 0 0;
+            }
+            
             @media only screen and (min-width: 150px) and (max-width: 800px) {
                 .body {
                     width: 100%;
@@ -267,14 +275,14 @@
                     display: block;
                 }
                 .mainheader nav ul li a {}
-                .maincontent {}
+                .swap {}
                 .content {
                     float: left;
                     margin-top: 2%;
                     margin-left: auto;
                     margin-right: auto;
                 }
-                .maincontent {
+                .swap {
                     width: 90%;
                     vertical-align: middle;
                     display: block;
