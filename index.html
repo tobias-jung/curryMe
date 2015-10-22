@@ -13,10 +13,10 @@
 <body class="body" onload='init();'>
     <header class="mainheader">
         <div class="header-right">
-        <img src="media/logo.png" alt="CurryMe">
+            <img src="media/logo.png" alt="CurryMe">
         </div>
         <div class="header-left">
-        <canvas id="clock" width="929" height="170"></canvas>
+            <canvas id="clock" width="929" height="170"></canvas>
         </div>
         <nav>
             <ul>
@@ -76,33 +76,34 @@
             <br>
             <img src="media/einkaufswagen.png" width="40%" height="40%" onclick="callWarenkorb()">
 
-        </aside></div>
-        <footer class="mainfooter ">
-            <ul class="kontakt">
-                <li>
-                    <h2>Anfahrt</h2></li>
-                <li>
-                    <p>Coblitzallee 6-8</p>
-                </li>
-                <li>
-                    <p>68163 Mannheim</p>
-                </li>
-            </ul>
-            <ul class="kontakt">
-                <li>
-                    <h2>Kontakt</h2></li>
-                <li>
-                    <p>tel: 0621/123456</p>
-                </li>
-                <li>
-                    <p>
-                        <a href="emailto:curryme@example.com">curryme@example.com</a>
-                    </p>
-                </li>
-            </ul>
-            <p class="copyright">&copy;2015 curry.me</p>
+        </aside>
+    </div>
+    <footer class="mainfooter ">
+        <ul class="kontakt">
+            <li>
+                <h2>Anfahrt</h2></li>
+            <li>
+                <p>Coblitzallee 6-8</p>
+            </li>
+            <li>
+                <p>68163 Mannheim</p>
+            </li>
+        </ul>
+        <ul class="kontakt">
+            <li>
+                <h2>Kontakt</h2></li>
+            <li>
+                <p>tel: 0621/123456</p>
+            </li>
+            <li>
+                <p>
+                    <a href="emailto:curryme@example.com">curryme@example.com</a>
+                </p>
+            </li>
+        </ul>
+        <p class="copyright">&copy;2015 curry.me</p>
 
-        </footer>
+    </footer>
 </body>
 <template id="kontakt">
     <form id="form" class="form" name="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete>
@@ -321,7 +322,11 @@
     </style>
 </template>
 <template id="login">
-    Login
+    <form action="" method="post">
+            <input type="text" name="username" placeholder="Benutzername">
+            <input type="password" name="password" placeholder="Passwort">
+            <input type="submit" value="Login">
+        </form>
 </template>
 <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
 
