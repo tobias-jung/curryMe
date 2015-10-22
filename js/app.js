@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var passport = require('passport');
 var passportLocal = require('passport-local');
+var login = false;
 
 
 app.use(express.static('../'));
@@ -31,12 +32,15 @@ passport.use(new passportLocal.Strategy(function (username, password, done) {
     if (username === password) {
         done(null, {
             id: username,
-            name: username
+            name: username,
+            login: true
         });
     } else {
         done(null, null);
+        login: false
     }
 }));
+
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);
@@ -62,6 +66,10 @@ app.get('/', function (req, res) {
 app.post('/', passport.authenticate('local'), function (req, res) {
     res.redirect('/');
 
+});
+
+app.get('/verify', function (req, res) {
+    res.send('valid');
 });
 
 app.get('/', function (req, res) {

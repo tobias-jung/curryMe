@@ -177,14 +177,26 @@ function callUeberUns() {
 }
 
 function callLogIn() {
-    if (isAuthenticated == false) {
-        isAuthenticated = true
+    if (isLoggedIn()) {
         document.getElementById("swap").innerHTML = textlogin.innerHTML;
+
     } else {
-        isAuthenticated = false
         document.getElementById("swap").innerHTML = textlogout.innerHTML;
     }
 
+}
+//Funktion zum prüfen, ob User eingeloggt!
+function isLoggedIn() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", '/verify', false);
+    // false for synchronous request
+    xmlHttp.send(null);
+    var response = xmlHttp.responseText;
+    if (response === 'valid') {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function callImpressum() {
