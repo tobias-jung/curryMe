@@ -119,7 +119,7 @@ function handleDrop(event) {
     
                    var bild = document.createElement("div");
                var br = document.createElement("br");
-    bild.innerHTML = "<img src='media/einkaufswagen.png' width='100%' height='100%' onclick='callWarenkorb()'>"
+    bild.innerHTML = "<img src='media/einkaufswagen.png' width='40%' height='40%' onclick='callWarenkorb()'>"
     
                     document.getElementById("warenkorb-sidebar").appendChild(br);
                     document.getElementById("warenkorb-sidebar").appendChild(br);
@@ -226,8 +226,8 @@ function callSpeisekarte() {
         var divBR = document.createElement("br");
         divSpeisekarte.appendChild(postenDiv);
 
-        document.getElementById("masterContent").appendChild(divSpeisekarte);
-        document.getElementById("masterContent").appendChild(divBR);
+        document.getElementById("swap").appendChild(divSpeisekarte);
+        document.getElementById("swap").appendChild(divBR);
     }
 
 
@@ -238,7 +238,7 @@ function callSpeisekarte() {
 
 function callWarenkorb() {
 
-    var myNode = document.getElementById("masterContent");
+    var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
@@ -269,10 +269,10 @@ function callWarenkorb() {
         gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
         
         
-        document.getElementById("masterContent").appendChild(tabelle);
+        document.getElementById("swap").appendChild(tabelle);
 
     }
-                document.getElementById("masterContent").appendChild(gesamtsummeTabelle);
+                document.getElementById("swap").appendChild(gesamtsummeTabelle);
 
                 
 
@@ -314,7 +314,6 @@ function draw() {
 		time = pad2(currentTime.getHours()) + pad2(currentTime.getMinutes()) + pad2(currentTime.getSeconds()),
 		iDigit;
 	
-	console.log(time);
 	clearCanvas();
 
 	// Draw the HHHH digits onto the canvas
