@@ -1,3 +1,7 @@
+/* Authentifizierung mittels Node.js Authentication Passport
+Author: Tobias Jung
+*/
+
 var express = require('express');
 var app = express();
 
@@ -12,7 +16,6 @@ var benutzer;
 
 app.use(express.static('../'));
 
-app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -55,7 +58,7 @@ passport.deserializeUser(function (id, done) {
         name: id
     });
 });
-
+/*
 app.get('/', function (req, res) {
 
     res.render('login', {
@@ -64,6 +67,7 @@ app.get('/', function (req, res) {
 
     });
 });
+*/
 
 app.post('/login', passport.authenticate('local'), function (req, res) {
     res.redirect('/');
@@ -89,11 +93,12 @@ app.get('/logout', function (req, res) {
 var port = process.env.PORT || 1337;
 
 
-
+//Webserver node app.js in Arbeitsverzeichnis /js
 app.listen(port, function () {
     console.log('http://localhost:' + port + '/');
 });
 
+//Setzt Login-Variable und speichert Username
 function setLogin(username) {
     if (login == false) {
         login = true;

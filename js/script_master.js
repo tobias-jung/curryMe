@@ -174,8 +174,12 @@ function callUeberUns() {
     document.getElementById("swap").innerHTML = textueberuns.innerHTML;
 
 }
-
+/*
+Authentifizierung mittels Authentication Passport
+Author: Tobias Jung
+*/
 function callLogIn() {
+    //wenn Benutzer eingeloggt (=true)
     if (isLoggedIn()) {
         document.getElementById("swap").innerHTML = textlogout.innerHTML;
 
@@ -187,23 +191,26 @@ function callLogIn() {
 }
 //Funktion zum prüfen, ob User eingeloggt!
 function isLoggedIn() {
+    // XMLHTTP-Request
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", '/verify', false);
     // false for synchronous request
     xmlHttp.send(null);
     var response = xmlHttp.responseText;
+    //wenn Benutzer nicht eingeloggt, dann....
     if (response === 'notvalid') {
-        return false;
+        return false; //liefere false zurück
 
     } else {
-        benutzer = response;
+        benutzer = response; //speichere Username und liefere true zurück
         return true;
     }
 }
 
 function getUsername() {
-    return benutzer;
+    return benutzer; //liefere Benutzername zurück
 }
+/*########################*/
 
 function callImpressum() {
     document.getElementById("swap").innerHTML = textimpressum.innerHTML;
