@@ -182,6 +182,7 @@ function callLogIn() {
     //wenn Benutzer eingeloggt (=true)
     if (isLoggedIn()) {
         document.getElementById("swap").innerHTML = textlogout.innerHTML;
+        document.getElementById("username").innerHTML = getUsername();
 
     } else {
 
