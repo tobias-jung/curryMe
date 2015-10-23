@@ -35,7 +35,7 @@
 
                 </li>
                 <li>
-                    <a href="#" onclick="callLogIn()">Login</a>
+                    <a href="#" onclick="callLogIn()">Kunden-Login</a>
                 </li>
                 <li>
                     <a href="#" onclick="callImpressum()">Impressum</a>
@@ -324,8 +324,9 @@
 </template>
 
 <template id="login">
+    <h4>Kunden-Login</h4>
     <p>Lieber Besucher,</p>
-    <p>derzeit sind Sie nicht eingeloggt. Bitte loggen Sie sich     ein!</p>
+    <p>derzeit sind Sie nicht eingeloggt. Um Ihre Bestellung aufgeben zu können, müssen Sie sich anmelden! Bitte loggen Sie sich ein...</p>
     <form action="/login" method="post">
             <input type="text" name="username" placeholder="Benutzername">
             <input type="password" name="password" placeholder="Passwort">
