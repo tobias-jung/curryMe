@@ -3,7 +3,7 @@
     {"id": 1,
     "name": "Berliner Currywurst",
     "beschreibung": "Unser Klassiker",
-    "grafik": "../media/currywurst1.jpg",
+    "grafik": "./media/currywurst1.jpg",
     "preis": 2.49,
     "anzahl": 0}
     
@@ -12,7 +12,7 @@
     {"id": 2,
     "name": "Currywurst vegetarisch",
     "beschreibung": "#Hipster #SoWasKauftManDochNurInBerlin #Facepalm",
-    "grafik": "../media/currywurst1.jpg",
+    "grafik": "./media/currywurst1.jpg",
     "preis": 4.29,
     "anzahl": 0}
     
@@ -21,7 +21,7 @@
     {"id": 3,
     "name": "Geflügel Currywurst",
     "beschreibung": "Die etwas Andere Currywurst",
-    "grafik": "../media/currywurst1.jpg",
+    "grafik": "./media/currywurst1.jpg",
     "preis": 2.49,
     "anzahl": 0}
 

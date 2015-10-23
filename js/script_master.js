@@ -4,7 +4,7 @@ var benutzer;
 
 
 function sndReq() {
-    resObjekt.open('get', '../json/artikel.json', false);
+    resObjekt.open('get', './json/artikel.json', false);
     resObjekt.onreadystatechange = handleResponse;
     resObjekt.send();
 
