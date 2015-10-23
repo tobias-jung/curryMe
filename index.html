@@ -67,7 +67,7 @@
                 <x-impressum></x-impressum>
                 <ueber-uns></ueber-uns>
                 <x-startseite></x-startseite>
-                
+
             </div>
         </div>
 
@@ -322,10 +322,11 @@
         }
     </style>
 </template>
+
 <template id="login">
     <p>Lieber Besucher,</p>
     <p>derzeit sind Sie nicht eingeloggt. Bitte loggen Sie sich     ein!</p>
-    <form action="" method="post">
+    <form action="/login" method="post">
             <input type="text" name="username" placeholder="Benutzername">
             <input type="password" name="password" placeholder="Passwort">
             <input type="submit" value="Login">
@@ -333,8 +334,9 @@
     <script>var online=true;</script>
 </template>
 
-<template id="logout">
-    <p>Sie wurden ausgeloggt!</p>
+<template id="logout">   
+    <p>Willkommen,</p><form action="/logout" method="get"><input type="submit" value="Logout">
+        
 </template>
 
 <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>

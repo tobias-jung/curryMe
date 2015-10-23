@@ -7,6 +7,7 @@ var expressSession = require('express-session');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var login = false;
+var benutzer;
 
 
 app.use(express.static('../'));
@@ -27,17 +28,18 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Authentifizierung
 passport.use(new passportLocal.Strategy(function (username, password, done) {
     //Hier würde der DB-Aufruf stehen!
     if (username === password) {
         done(null, {
             id: username,
             name: username,
-            login: true
-        });
+        })
+        setLogin(username);
     } else {
         done(null, null);
-        login: false
+
     }
 }));
 
@@ -63,17 +65,23 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/', passport.authenticate('local'), function (req, res) {
+app.post('/login', passport.authenticate('local'), function (req, res) {
     res.redirect('/');
 
 });
 
 app.get('/verify', function (req, res) {
-    res.send('valid');
+    if (login == true) {
+        res.send(benutzer);
+    } else {
+        res.send('notvalid');
+
+    }
 });
 
-app.get('/', function (req, res) {
+app.get('/logout', function (req, res) {
     req.logout();
+    setLogin();
     res.redirect('/');
 });
 
@@ -81,6 +89,16 @@ app.get('/', function (req, res) {
 var port = process.env.PORT || 1337;
 
 
+
 app.listen(port, function () {
     console.log('http://localhost:' + port + '/');
 });
+
+function setLogin(username) {
+    if (login == false) {
+        login = true;
+        benutzer = username;
+    } else {
+        login = false;
+    }
+}

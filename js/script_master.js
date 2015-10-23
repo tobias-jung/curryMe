@@ -1,7 +1,6 @@
 resObjekt = new XMLHttpRequest();
 var artikel;
-//Variable für Login!
-var isAuthenticated = false;
+var benutzer;
 
 
 function sndReq() {
@@ -178,10 +177,11 @@ function callUeberUns() {
 
 function callLogIn() {
     if (isLoggedIn()) {
-        document.getElementById("swap").innerHTML = textlogin.innerHTML;
+        document.getElementById("swap").innerHTML = textlogout.innerHTML;
 
     } else {
-        document.getElementById("swap").innerHTML = textlogout.innerHTML;
+
+        document.getElementById("swap").innerHTML = textlogin.innerHTML;
     }
 
 }
@@ -192,11 +192,17 @@ function isLoggedIn() {
     // false for synchronous request
     xmlHttp.send(null);
     var response = xmlHttp.responseText;
-    if (response === 'valid') {
-        return true;
-    } else {
+    if (response === 'notvalid') {
         return false;
+
+    } else {
+        benutzer = response;
+        return true;
     }
+}
+
+function getUsername() {
+    return benutzer;
 }
 
 function callImpressum() {
