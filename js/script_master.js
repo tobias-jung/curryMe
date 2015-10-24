@@ -54,6 +54,53 @@ function add(artikel_id) {
     }
 }
 
+function del(artikel_id) {
+
+    for (var i = 0; i < artikel.length; i++) {
+
+        if (artikel[i].id == artikel_id) {
+            artikel[i].anzahl--;
+        }
+
+    }
+}
+
+function delButton(artikel_id) {
+    
+    del(artikel_id);
+    callWarenkorb();
+    callSidebar();
+                   
+    
+                    }
+
+function addButton(artikel_id) {
+    
+                   
+    add(artikel_id);
+    callWarenkorb();
+    callSidebar();
+    
+                    }
+
+function delButtonSpeisekarte(artikel_id) {
+    
+    del(artikel_id);
+callSpeisekarte();
+    callSidebar();
+                   
+    
+                    }
+
+function addButtonSpeisekarte(artikel_id) {
+    
+                   
+    add(artikel_id);
+    callSpeisekarte();
+    callSidebar();
+    
+                    }
+
 
 /*
 Warenkorb - Drag and Drop
@@ -80,6 +127,12 @@ function handleDrop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("artikel_id");
     add(data);
+    callSidebar();
+
+    
+}
+
+function callSidebar() {
 
     var myNode = document.getElementById("warenkorb-sidebar");
     while (myNode.firstChild) {
@@ -254,7 +307,7 @@ function callSpeisekarte() {
 
         var posten = document.createElement("table");
         posten.border = 1;
-        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td></tr>"
+        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
 
         postenDiv.appendChild(posten);
         var divBR = document.createElement("br");
@@ -281,7 +334,7 @@ function callWarenkorb() {
     tabelle.border = 1;
 
     var heading = document.createElement("tr");
-    heading.innerHTML = "<th>Abbildung</th><th>Produkt</th><th>Anzahl</th><th>Einzelpreis</th><th>Gesamt</th>";
+    heading.innerHTML = "<th>Abbildung</th><th>Produkt</th><th>Anzahl</th><th>Einzelpreis</th><th>Gesamt</th><th>löschen</th><th>hinzufügen</th>";
 
     tabelle.appendChild(heading);
 
@@ -290,7 +343,7 @@ function callWarenkorb() {
         if (artikel[i].anzahl > 0) {
 
             var position = document.createElement("tr")
-            position.innerHTML = "<td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td>"
+            position.innerHTML = "<td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td><td><button type='button' onclick = 'delButton(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButton(" + artikel[i].id + ")'>+</button></td>"
 
             tabelle.appendChild(position);
 
@@ -307,6 +360,17 @@ function callWarenkorb() {
 
     }
     document.getElementById("swap").appendChild(gesamtsummeTabelle);
+
+    var br = document.createElement("br");
+    document.getElementById("swap").appendChild(br);
+
+    var button = document.createElement("button");
+    button.type = "button";
+    button.onclick = bestellen;
+    button.innerHTML = "Bestellung abschicken";
+
+    document.getElementById("swap").appendChild(button);
+
 
 
 
@@ -395,4 +459,35 @@ function init() {
     } else {
         alert("Canvas wird nicht unterstützt");
     }
+}
+
+
+function bestellen() {
+
+    if (isLoggedIn() == true) {
+        alert("Ihre Bestellung wurde abgeschicket");
+        sndReq();
+        callSpeisekarte();
+
+        var myNode = document.getElementById("warenkorb-sidebar");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+
+        var bild1 = document.createElement("img");
+        bild1.src = "media/drag_drop.png";
+
+        var bild = document.createElement("div");
+        var br = document.createElement("br");
+        bild.innerHTML = "<img src='media/einkaufswagen.png' width='40%' height='40%' onclick='callWarenkorb()'>"
+
+        document.getElementById("warenkorb-sidebar").appendChild(bild1);
+        document.getElementById("warenkorb-sidebar").appendChild(br);
+        document.getElementById("warenkorb-sidebar").appendChild(bild);
+
+
+    } else {
+        alert("Bitte mdelden sie sich an, um ihre Bestellung abzuschicken");
+    }
+
 }
