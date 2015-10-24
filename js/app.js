@@ -89,6 +89,10 @@ app.get('/logout', function (req, res) {
     res.redirect('/');
 });
 
+app.post('/contact', function (req, res) {
+    res.redirect('/');
+});
+
 
 var port = process.env.PORT || 1337;
 
