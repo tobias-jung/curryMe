@@ -36,9 +36,9 @@ function getArtikelGesamtsumme() {
     var gesamtsumme;
     gesamtsumme = 0.00;
     for (var i = 0; i < artikel.length; i++) {
-        gesamtsumme = gesamtsumme + ((artikel[i].preis) * artikel[i].anzahl);
+        gesamtsumme = (gesamtsumme + (artikel[i].preis) * artikel[i].anzahl);
     }
-    return gesamtsumme;
+    return gesamtsumme.toFixed(2);
 
 }
 
@@ -153,7 +153,7 @@ function callSidebar() {
         if (artikel[i].anzahl > 0) {
 
             var position = document.createElement("tr")
-            position.innerHTML = "<td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].name + "</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td>"
+            position.innerHTML = "<td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].name + "</td><td>" + artikel[i].preis + "€</td><td>" + ((artikel[i].preis) * (artikel[i].anzahl)).toFixed(2) + "€</td>"
 
             tabelle.appendChild(position);
 
@@ -308,11 +308,11 @@ function callSpeisekarte() {
         var posten = document.createElement("table");
         posten.className = "produkte";
         posten.border = 1;
-<<<<<<< HEAD
+
         posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td width='" + ((document.getElementById("swap").clientWidth) * 0.15) + "'>" + artikel[i].name + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.2) + "'>" + artikel[i].beschreibung + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.1) + "'>" + artikel[i].preis + "€</td></tr>"
-=======
+
         posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
->>>>>>> origin/master
+
 
         postenDiv.appendChild(posten);
         var divBR = document.createElement("br");
@@ -348,7 +348,7 @@ function callWarenkorb() {
         if (artikel[i].anzahl > 0) {
 
             var position = document.createElement("tr")
-            position.innerHTML = "<td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td><td><button type='button' onclick = 'delButton(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButton(" + artikel[i].id + ")'>+</button></td>"
+            position.innerHTML = "<td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].preis + "€</td><td>" + ((artikel[i].preis) * (artikel[i].anzahl)).toFixed(2) + "€</td><td><button type='button' onclick = 'delButton(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButton(" + artikel[i].id + ")'>+</button></td>"
 
             tabelle.appendChild(position);
 
