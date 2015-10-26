@@ -309,7 +309,7 @@ function callSpeisekarte() {
         posten.className = "produkte";
         posten.border = 1;
 
-        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td width='" + ((document.getElementById("swap").clientWidth) * 0.15) + "'>" + artikel[i].name + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.2) + "'>" + artikel[i].beschreibung + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.1) + "'>" + artikel[i].preis + "€</td></tr>"
+        
 
         posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
 
