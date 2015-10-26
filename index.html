@@ -35,8 +35,7 @@
 
                 </li>
                 <li>
-
-                    <a href="#" onclick="callLogIn()">Login</a>
+                    <a href="#" onclick="callLogIn()">Kunden-Login</a>
                 </li>
                 <li>
                     <a href="#" onclick="callImpressum()">Impressum</a>
@@ -64,9 +63,11 @@
             <div style="display: none">
                 <x-kontakt></x-kontakt>
                 <log-in></log-in>
+                <log-out></log-out>
                 <x-impressum></x-impressum>
                 <ueber-uns></ueber-uns>
                 <x-startseite></x-startseite>
+
             </div>
         </div>
 
@@ -106,7 +107,7 @@
     </footer>
 </body>
 <template id="kontakt">
-    <form id="form" class="form" name="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete>
+    <form id="form" class="form" name="form" action="/contact" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete>
         <h2><a href="# " title="Kontaktiere uns!">Kontaktiere uns!</a></h2></header>
         <div class="content">
             <div class="intro"></div>
@@ -321,13 +322,25 @@
         }
     </style>
 </template>
+
 <template id="login">
-    <form action="" method="post">
+    <h2>Kunden-Login</h2>
+    <p>Lieber Besucher,</p>
+    <p>derzeit sind Sie nicht eingeloggt. Um Ihre Bestellung aufgeben zu können, müssen Sie sich anmelden! Bitte loggen Sie sich ein...</p>
+    <form action="/login" method="post">
             <input type="text" name="username" placeholder="Benutzername">
             <input type="password" name="password" placeholder="Passwort">
             <input type="submit" value="Login">
         </form>
+    <script>var online=true;</script>
 </template>
+
+<template id="logout">   
+    <h2>Herzlich Willkommen <span id='username'>placeholder</span>,</h2>
+<p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p><form action="/logout" method="get"><input type="submit" value="Logout">
+        
+</template>
+
 <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
 
 

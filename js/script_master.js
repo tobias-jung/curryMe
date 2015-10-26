@@ -1,9 +1,10 @@
 resObjekt = new XMLHttpRequest();
 var artikel;
+var benutzer;
 
 
 function sndReq() {
-    resObjekt.open('get', '../json/artikel.json', false);
+    resObjekt.open('get', './json/artikel.json', false);
     resObjekt.onreadystatechange = handleResponse;
     resObjekt.send();
 
@@ -53,6 +54,53 @@ function add(artikel_id) {
     }
 }
 
+function del(artikel_id) {
+
+    for (var i = 0; i < artikel.length; i++) {
+
+        if (artikel[i].id == artikel_id) {
+            artikel[i].anzahl--;
+        }
+
+    }
+}
+
+function delButton(artikel_id) {
+    
+    del(artikel_id);
+    callWarenkorb();
+    callSidebar();
+                   
+    
+                    }
+
+function addButton(artikel_id) {
+    
+                   
+    add(artikel_id);
+    callWarenkorb();
+    callSidebar();
+    
+                    }
+
+function delButtonSpeisekarte(artikel_id) {
+    
+    del(artikel_id);
+callSpeisekarte();
+    callSidebar();
+                   
+    
+                    }
+
+function addButtonSpeisekarte(artikel_id) {
+    
+                   
+    add(artikel_id);
+    callSpeisekarte();
+    callSidebar();
+    
+                    }
+
 
 /*
 Warenkorb - Drag and Drop
@@ -64,7 +112,7 @@ Author: Fabian Sölker
 //Dragstart
 function drag(event) {
     event.dataTransfer.setData("artikel_id", event.srcElement.id);
-    
+
 }
 
 //Allow Drop
@@ -79,6 +127,12 @@ function handleDrop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("artikel_id");
     add(data);
+    callSidebar();
+
+    
+}
+
+function callSidebar() {
 
     var myNode = document.getElementById("warenkorb-sidebar");
     while (myNode.firstChild) {
@@ -90,7 +144,7 @@ function handleDrop(event) {
 
     var heading = document.createElement("tr");
     heading.innerHTML = "<th>Anzahl</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th>";
-    
+
     tabelle.appendChild(heading);
 
     for (var i = 0; i < getArtikel().length; i++) {
@@ -108,22 +162,22 @@ function handleDrop(event) {
 
         }
 
-                var gesamtsummeTabelle = document.createElement("table");
+        var gesamtsummeTabelle = document.createElement("table");
         gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
-        
-        
+
+
         document.getElementById("warenkorb-sidebar").appendChild(tabelle);
 
     }
-                document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
-    
-                   var bild = document.createElement("div");
-               var br = document.createElement("br");
+    document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
+
+    var bild = document.createElement("div");
+    var br = document.createElement("br");
     bild.innerHTML = "<img src='media/einkaufswagen.png' width='40%' height='40%' onclick='callWarenkorb()'>"
-    
-                    document.getElementById("warenkorb-sidebar").appendChild(br);
-                    document.getElementById("warenkorb-sidebar").appendChild(br);
-                    document.getElementById("warenkorb-sidebar").appendChild(bild);
+
+    document.getElementById("warenkorb-sidebar").appendChild(br);
+    document.getElementById("warenkorb-sidebar").appendChild(br);
+    document.getElementById("warenkorb-sidebar").appendChild(bild);
 
 
 }
@@ -145,6 +199,10 @@ textueberuns.innerHTML = document.getElementById("ueberuns").innerHTML;
 var hostlogin = document.querySelector('log-in');
 var textlogin = hostlogin.createShadowRoot();
 textlogin.innerHTML = document.getElementById("login").innerHTML;
+
+var hostlogout = document.querySelector('log-out');
+var textlogout = hostlogout.createShadowRoot();
+textlogout.innerHTML = document.getElementById("logout").innerHTML;
 
 
 var hostimpressum = document.querySelector('x-impressum');
@@ -169,17 +227,47 @@ function callUeberUns() {
     document.getElementById("swap").innerHTML = textueberuns.innerHTML;
 
 }
-
+/*
+Authentifizierung mittels Authentication Passport
+Author: Tobias Jung
+*/
 function callLogIn() {
+    //wenn Benutzer eingeloggt (=true)
+    if (isLoggedIn()) {
+        document.getElementById("swap").innerHTML = textlogout.innerHTML;
+        document.getElementById("username").innerHTML = getUsername();
 
-    document.getElementById("swap").innerHTML = textlogin.innerHTML;
+    } else {
+
+        document.getElementById("swap").innerHTML = textlogin.innerHTML;
+    }
 
 }
+//Funktion zum prüfen, ob User eingeloggt!
+function isLoggedIn() {
+    // XMLHTTP-Request
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", '/verify', false);
+    // false for synchronous request
+    xmlHttp.send(null);
+    var response = xmlHttp.responseText;
+    //wenn Benutzer nicht eingeloggt, dann....
+    if (response === 'notvalid') {
+        return false; //liefere false zurück
+
+    } else {
+        benutzer = response; //speichere Username und liefere true zurück
+        return true;
+    }
+}
+
+function getUsername() {
+    return benutzer; //liefere Benutzername zurück
+}
+/*########################*/
 
 function callImpressum() {
-
     document.getElementById("swap").innerHTML = textimpressum.innerHTML;
-
 }
 
 function callStartseite() {
@@ -198,9 +286,8 @@ function callSpeisekarte() {
 
 
 
-    if(typeof(getArtikel()) == "undefined")
-    {
-    sndReq();
+    if (typeof (getArtikel()) == "undefined") {
+        sndReq();
     }
 
     var idProdukt = 1;
@@ -221,7 +308,11 @@ function callSpeisekarte() {
         var posten = document.createElement("table");
         posten.className = "produkte";
         posten.border = 1;
+<<<<<<< HEAD
         posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td width='" + ((document.getElementById("swap").clientWidth) * 0.15) + "'>" + artikel[i].name + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.2) + "'>" + artikel[i].beschreibung + "</td><td  width='" + ((document.getElementById("swap").clientWidth) * 0.1) + "'>" + artikel[i].preis + "€</td></tr>"
+=======
+        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
+>>>>>>> origin/master
 
         postenDiv.appendChild(posten);
         var divBR = document.createElement("br");
@@ -248,8 +339,8 @@ function callWarenkorb() {
     tabelle.border = 1;
 
     var heading = document.createElement("tr");
-    heading.innerHTML = "<th>Abbildung</th><th>Produkt</th><th>Anzahl</th><th>Einzelpreis</th><th>Gesamt</th>";
-    
+    heading.innerHTML = "<th>Abbildung</th><th>Produkt</th><th>Anzahl</th><th>Einzelpreis</th><th>Gesamt</th><th>löschen</th><th>hinzufügen</th>";
+
     tabelle.appendChild(heading);
 
     for (var i = 0; i < getArtikel().length; i++) {
@@ -257,7 +348,7 @@ function callWarenkorb() {
         if (artikel[i].anzahl > 0) {
 
             var position = document.createElement("tr")
-            position.innerHTML = "<td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td>"
+            position.innerHTML = "<td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].preis + "€</td><td>" + (artikel[i].preis) * (artikel[i].anzahl) + "€</td><td><button type='button' onclick = 'delButton(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButton(" + artikel[i].id + ")'>+</button></td>"
 
             tabelle.appendChild(position);
 
@@ -266,16 +357,27 @@ function callWarenkorb() {
 
         }
 
-                var gesamtsummeTabelle = document.createElement("table");
+        var gesamtsummeTabelle = document.createElement("table");
         gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
-        
-        
+
+
         document.getElementById("swap").appendChild(tabelle);
 
     }
-                document.getElementById("swap").appendChild(gesamtsummeTabelle);
+    document.getElementById("swap").appendChild(gesamtsummeTabelle);
 
-                
+    var br = document.createElement("br");
+    document.getElementById("swap").appendChild(br);
+
+    var button = document.createElement("button");
+    button.type = "button";
+    button.onclick = bestellen;
+    button.innerHTML = "Bestellung abschicken";
+
+    document.getElementById("swap").appendChild(button);
+
+
+
 
 }
 
@@ -289,79 +391,108 @@ function callWarenkorb() {
 
 // Global variable
 var clock_face = null,
-	ctx = null;
+    ctx = null;
 
 var IMG_HEIGHT = 170,
-	IMG_WIDTH = 929,
-	DIGIT_HEIGHT = IMG_HEIGHT,
-	DIGIT_WIDTH = 99,
-	xPositions = null,
-	xSecondStartPos = 0,
-	secondWidth = 0,
-	secondHeight = 0;
-	
+    IMG_WIDTH = 929,
+    DIGIT_HEIGHT = IMG_HEIGHT,
+    DIGIT_WIDTH = 99,
+    xPositions = null,
+    xSecondStartPos = 0,
+    secondWidth = 0,
+    secondHeight = 0;
+
 function clearCanvas() {
-	 // clear canvas
-	ctx.clearRect(0, 0, IMG_HEIGHT, IMG_WIDTH);
+    // clear canvas
+    ctx.clearRect(0, 0, IMG_HEIGHT, IMG_WIDTH);
 }
 
 function pad2(number) {
-	return (number < 10 ? '0' : '') + number;
+    return (number < 10 ? '0' : '') + number;
 }
 
 function draw() {
-	
-	var currentTime = new Date(),
-		time = pad2(currentTime.getHours()) + pad2(currentTime.getMinutes()) + pad2(currentTime.getSeconds()),
-		iDigit;
-	
-	clearCanvas();
 
-	// Draw the HHHH digits onto the canvas
-	for(iDigit = 0; iDigit < 4; iDigit++) {
-		drawHHMMDigit(time, iDigit);
-	}
-	
-	// Draw scalled second digits
-	ctx.drawImage(clock_face, time.substr(4, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xSecondStartPos, 20, secondWidth, secondHeight);
-	ctx.drawImage(clock_face, time.substr(5, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xSecondStartPos + secondWidth, 20, secondWidth, secondHeight);
+    var currentTime = new Date(),
+        time = pad2(currentTime.getHours()) + pad2(currentTime.getMinutes()) + pad2(currentTime.getSeconds()),
+        iDigit;
+
+    clearCanvas();
+
+    // Draw the HHHH digits onto the canvas
+    for (iDigit = 0; iDigit < 4; iDigit++) {
+        drawHHMMDigit(time, iDigit);
+    }
+
+    // Draw scalled second digits
+    ctx.drawImage(clock_face, time.substr(4, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xSecondStartPos, 20, secondWidth, secondHeight);
+    ctx.drawImage(clock_face, time.substr(5, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xSecondStartPos + secondWidth, 20, secondWidth, secondHeight);
 }
 
 function drawHHMMDigit(time, unit) {
-	ctx.drawImage(clock_face, time.substr(unit,1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xPositions[unit], 0, DIGIT_WIDTH, DIGIT_HEIGHT);
+    ctx.drawImage(clock_face, time.substr(unit, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xPositions[unit], 0, DIGIT_WIDTH, DIGIT_HEIGHT);
 }
 
 function imgLoaded() {
-	// Image loaded event complete.  Start the timer
-	setInterval(draw, 1000);
+    // Image loaded event complete.  Start the timer
+    setInterval(draw, 1000);
 }
 
 function init() {
-	// Grab the clock element
-	var canvas = document.getElementById('clock'),
-		iHHMMGap = 25,
-		iSSGap = 0;
+    // Grab the clock element
+    var canvas = document.getElementById('clock'),
+        iHHMMGap = 25,
+        iSSGap = 0;
 
-	// Canvas supported?
-	if (canvas.getContext('2d')) {
-		ctx = canvas.getContext('2d');
+    // Canvas supported?
+    if (canvas.getContext('2d')) {
+        ctx = canvas.getContext('2d');
 
-		// Load the clock face image
-		clock_face = new Image();
-		clock_face.src = '../media/flip_clock.png';
-		clock_face.onload = imgLoaded;
+        // Load the clock face image
+        clock_face = new Image();
+        clock_face.src = './media/flip_clock.png';
+        clock_face.onload = imgLoaded;
 
-		xPositions = Array(DIGIT_WIDTH * 0,
-							DIGIT_WIDTH * 1,
-							(DIGIT_WIDTH * 2) + iHHMMGap,
-							(DIGIT_WIDTH * 3) + iHHMMGap)
-							
-		xSecondStartPos = xPositions[3] + DIGIT_WIDTH + iSSGap;
-		
-		secondWidth = DIGIT_WIDTH * 0.25;
-		secondHeight = DIGIT_HEIGHT * 0.25;
-		
-	} else {
-		alert("Canvas wird nicht unterstützt");
-	}
+        xPositions = Array(DIGIT_WIDTH * 0,
+            DIGIT_WIDTH * 1, (DIGIT_WIDTH * 2) + iHHMMGap, (DIGIT_WIDTH * 3) + iHHMMGap)
+
+        xSecondStartPos = xPositions[3] + DIGIT_WIDTH + iSSGap;
+
+        secondWidth = DIGIT_WIDTH * 0.25;
+        secondHeight = DIGIT_HEIGHT * 0.25;
+
+    } else {
+        alert("Canvas wird nicht unterstützt");
+    }
+}
+
+
+function bestellen() {
+
+    if (isLoggedIn() == true) {
+        alert("Ihre Bestellung wurde abgeschicket");
+        sndReq();
+        callSpeisekarte();
+
+        var myNode = document.getElementById("warenkorb-sidebar");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+
+        var bild1 = document.createElement("img");
+        bild1.src = "media/drag_drop.png";
+
+        var bild = document.createElement("div");
+        var br = document.createElement("br");
+        bild.innerHTML = "<img src='media/einkaufswagen.png' width='40%' height='40%' onclick='callWarenkorb()'>"
+
+        document.getElementById("warenkorb-sidebar").appendChild(bild1);
+        document.getElementById("warenkorb-sidebar").appendChild(br);
+        document.getElementById("warenkorb-sidebar").appendChild(bild);
+
+
+    } else {
+        alert("Bitte mdelden sie sich an, um ihre Bestellung abzuschicken");
+    }
+
 }
