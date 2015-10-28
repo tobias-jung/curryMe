@@ -46,8 +46,8 @@
         </nav>
     </header>
 
-    <div class="maincontent ">
-        <div class="content ">
+    <div class="maincontent">
+        <div class="content">
 
             <div id="swap">
                 <header>
@@ -131,15 +131,15 @@
                     </div>
                     <div>
                         <input type="radio" name="radio" id="radio2" class="radio" />
-                        <label for="radio2" class="radiolabel">Super</label>
+                        <label for="radio2" class="radiolabel">Super Cool</label>
                     </div>
                     <div>
                         <input type="radio" name="radio" id="radio3" class="radio" />
-                        <label for="radio3" class="radiolabel">Super</label>
+                        <label for="radio3" class="radiolabel">Super²</label>
                     </div>
                     <div>
                         <input type="radio" name="radio" id="radio4" class="radio" />
-                        <label for="radio4" class="radiolabel">Super</label>
+                        <label for="radio4" class="radiolabel">Super³</label>
                     </div>
                 </div>
                 <div class="field">
@@ -152,80 +152,7 @@
             </div>
         </div>
     </form>
-    <style>
-        .submit {
-            margin-top: 10px;
-        }
-        
-        form {}
-        
-        div {}
-        
-        .radiolabel {
-            width: 200px;
-            border-radius: 3px;
-            border: 1px solid #D1D3D4;
-            margin-right: 5px;
-        }
-        
-        input.radio:empty {
-            margin-left: -999px;
-        }
-        
-        input.radio:empty ~ label {
-            position: relative;
-            float: left;
-            line-height: 2.5em;
-            text-indent: 3.25em;
-            margin-top: 2em;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        
-        input.radio:empty ~ label:before {
-            position: absolute;
-            display: block;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            content: "";
-            width: 2.5em;
-            background: #D1D3D4;
-            border-radius: 3px 0 0 3px;
-        }
-        
-        input.radio:hover:not(:checked) ~ label:before {
-            content: "";
-            text-indent: .9em;
-            color: #C2C2C2;
-        }
-        
-        input.radio:hover:not(:checked) ~ label {
-            color: #888;
-        }
-        
-        input.radio:checked ~ label:before {
-            content: "";
-            text-indent: .9em;
-            color: #9CE2AE;
-            background-color: #4DCB6D;
-        }
-        
-        input.radio:checked ~ label {
-            color: #777;
-        }
-        
-        input.radio:focus ~ label:before {
-            box-shadow: 0 0 0 3px #999;
-        }
-        
-        .radio {
-            float: left;
-        }
-    </style>
+   
 </template>
 <template id="startseite">
     <header>
@@ -327,7 +254,8 @@
 </template>
 
 <template id="login">
-    <h2>Kunden-Login</h2>
+    <header>
+        <h2><a href="# " title="Login">User Login</a></h2></header>
     <p>Lieber Besucher,</p>
     <p>derzeit sind Sie nicht eingeloggt. Um Ihre Bestellung aufgeben zu können, müssen Sie sich anmelden! Bitte loggen Sie sich ein...</p>
     <form action="/login" method="post">
@@ -341,7 +269,8 @@
 </template>
 
 <template id="logout">
-    <h2>Herzlich Willkommen <span id='username'>placeholder</span>,</h2>
+    <header>
+        <h2><a href="# " title="Logout">Herzlich Willkommen <span id='username'>placeholder</span></a></h2></header>
     <p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p>
     <form action="/logout" method="get">
         <input type="submit" value="Logout">

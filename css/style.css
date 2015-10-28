@@ -107,7 +107,6 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-            
             .swap {
                 
                 width: 70%;
@@ -182,14 +181,13 @@
             }
             
             .content {
-                padding: 30px;
+                padding: 10px 0 0 25px;
                 -moz-border-radius: 5px;
                 -webkit-border-radius: 5px;
                 border-radius: 5px;
                 float: left;
                 width: 70%;
                 background-color: white;
-                margin: 0px;
             }
             
             .form label {
@@ -199,7 +197,6 @@
             .form input[type=radio],
             input[type=checkbox] {
                 display: inline-block;
-                margin: 10px;
                 width: 13px;
             }
             
@@ -248,7 +245,78 @@
             .copyright {
                 margin: 71px 10px 0 0;
             }
-            
+            .submit {
+            margin-top: 10px;
+        }
+        
+        form {}
+        
+        div {}
+        
+        .radiolabel {
+            width: 200px;
+            border-radius: 3px;
+            border: 1px solid #D1D3D4;
+            margin-right: 5px;
+        }
+        
+        input.radio:empty {
+            margin-left: -999px;
+        }
+        
+        input.radio:empty ~ label {
+            position: relative;
+            float: left;
+            line-height: 2.5em;
+            text-indent: 3.25em;
+            margin-top: 2em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        input.radio:empty ~ label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: "";
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        input.radio:hover:not(:checked) ~ label:before {
+            content: "";
+            text-indent: .9em;
+            color: #C2C2C2;
+        }
+        
+        input.radio:hover:not(:checked) ~ label {
+            color: #888;
+        }
+        
+        input.radio:checked ~ label:before {
+            content: "";
+            text-indent: .9em;
+            color: #9CE2AE;
+            background-color: #4DCB6D;
+        }
+        
+        input.radio:checked ~ label {
+            color: #777;
+        }
+        
+        input.radio:focus ~ label:before {
+            box-shadow: 0 0 0 3px #999;
+        }
+        
+        .radio {
+            float: left;
+        }
             @media only screen and (min-width: 150px) and (max-width: 800px) {
                 .body {
                     width: 100%;
