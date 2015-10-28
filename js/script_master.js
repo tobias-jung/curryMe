@@ -287,7 +287,7 @@ function callStartseite() {
 
 function callSpeisekarte() {
     
-    history.pushState(null, null, "speisekarte");
+    history.pushState("speisekarte", null, "speisekarte");
 
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
@@ -509,4 +509,10 @@ function bestellen() {
     }
 
 }
+
+window.onpopstate = function(event) {
+
+    
+        }
+    
 
