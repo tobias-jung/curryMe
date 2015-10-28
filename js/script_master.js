@@ -406,10 +406,10 @@ function callWarenkorb() {
 var clock_face = null,
     ctx = null;
 
-var IMG_HEIGHT = 170,
-    IMG_WIDTH = 929,
+var IMG_HEIGHT = 59,
+    IMG_WIDTH = 346,
     DIGIT_HEIGHT = IMG_HEIGHT,
-    DIGIT_WIDTH = 99,
+    DIGIT_WIDTH = 34.5,
     xPositions = null,
     xSecondStartPos = 0,
     secondWidth = 0,
@@ -463,16 +463,16 @@ function init() {
 
         // Load the clock face image
         clock_face = new Image();
-        clock_face.src = './media/flip_clock.png';
+        clock_face.src = './media/flip_clock_small.png';
         clock_face.onload = imgLoaded;
 
         xPositions = Array(DIGIT_WIDTH * 0,
-            DIGIT_WIDTH * 1, (DIGIT_WIDTH * 2) + iHHMMGap, (DIGIT_WIDTH * 3) + iHHMMGap)
+            DIGIT_WIDTH * 1, (DIGIT_WIDTH * 1.4) + iHHMMGap, (DIGIT_WIDTH * 2.4) + iHHMMGap)
 
         xSecondStartPos = xPositions[3] + DIGIT_WIDTH + iSSGap;
 
-        secondWidth = DIGIT_WIDTH * 0.25;
-        secondHeight = DIGIT_HEIGHT * 0.25;
+        secondWidth = DIGIT_WIDTH * 0.35;
+        secondHeight = DIGIT_HEIGHT * 0.35;
 
     } else {
         alert("Canvas wird nicht unterstützt");

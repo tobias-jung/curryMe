@@ -12,11 +12,9 @@
 
 <body class="body" onload='init();'>
     <header class="mainheader">
-        <div class="header-right">
-            <img src="media/logo.png" alt="CurryMe">
-        </div>
-        <div class="header-left">
-            <canvas id="clock" width="929" height="170"></canvas>
+        <img src="media/logo.png" alt="CurryMe">
+        <div class="clock">
+            <canvas id="clock" width="200" height="59"></canvas>
         </div>
         <nav>
             <ul>
@@ -52,13 +50,11 @@
         <div class="content ">
 
             <div id="swap">
-                <h2>Willkommen auf CurryMe!</h2>
-                <div> Wir sind ein Unternehmen aus der Systemgastronomie und in dem Wachstumssegment Currywurst-Bringdienst tätig. In Mannheim-Neuostheim eröffneten wir im Oktober 2013 unser erstes Currywurst-Bistro mit Bringdienst.
+                <header>
+                    <h2><a href="# " title="Willkommen">Willkommen auf CurryMe!</a></h2></header>
+                <p>Wir sind ein Unternehmen aus der Systemgastronomie und in dem Wachstumssegment Currywurst-Bringdienst tätig. In Mannheim-Neuostheim eröffneten wir im Oktober 2013 unser erstes Currywurst-Bistro mit Bringdienst.
                     <br>
-                    <br> CurryMe gehört zu den Top-Lieferdiensten in Mannheim. Probieren auch Sie es aus! So funktioniert unser Lieferservice: Lecker Curry Wurst und andere Gerichte auswählen, online bestellen und von unserem Heimservice in wenigen Minuten bis an die Haustür bringen lassen.
-                    <br>
-                    <br>
-                </div>
+                    <br>CurryMe gehört zu den Top-Lieferdiensten in Mannheim. Probieren auch Sie es aus! So funktioniert unser Lieferservice: Lecker Curry Wurst und andere Gerichte auswählen, online bestellen und von unserem Heimservice in wenigen Minuten bis an die Haustür bringen lassen.</p>
             </div>
             <div style="display: none">
                 <x-kontakt></x-kontakt>
@@ -232,35 +228,42 @@
     </style>
 </template>
 <template id="startseite">
-    <h2>Willkommen auf CurryMe!</h2>
-    <div> Wir sind ein Unternehmen aus der Systemgastronomie und in dem Wachstumssegment Currywurst-Bringdienst tätig. In Mannheim-Neuostheim eröffneten wir im Oktober 2013 unser erstes Currywurst-Bistro mit Bringdienst.
+    <header>
+        <h2><a href="# " title="Willkommen">Willkommen auf CurryMe!</a></h2></header>
+    <p>Wir sind ein Unternehmen aus der Systemgastronomie und in dem Wachstumssegment Currywurst-Bringdienst tätig. In Mannheim-Neuostheim eröffneten wir im Oktober 2013 unser erstes Currywurst-Bistro mit Bringdienst.
         <br>
-        <br>CurryMe gehört zu den Top-Lieferdiensten in Mannheim. Probieren auch Sie es aus! So funktioniert unser Lieferservice: Lecker Curry Wurst und andere Gerichte auswählen, online bestellen und von unserem Heimservice in wenigen Minuten bis an die Haustür bringen lassen.
-        <br>
-        <br>
+        <br>CurryMe gehört zu den Top-Lieferdiensten in Mannheim. Probieren auch Sie es aus! So funktioniert unser Lieferservice: Lecker Curry Wurst und andere Gerichte auswählen, online bestellen und von unserem Heimservice in wenigen Minuten bis an die Haustür bringen lassen.</p>
 </template>
 <template id="ueberuns">
     <header>
         <h2><a href="# " title="Über uns">Über uns</a></h2></header>
-    <content>
-        <p>Unser freundliches und motiviertes Team heißt alle Gäste herzlich willkommen. Wenn Sie Fragen oder Wünsche zu uns, unseren Leistungen oder bei einem Ihrer Besuche bei uns haben, stehen wir Ihnen gern mit Rat und Tat zur Seite - sprechen Sie uns einfach an.</p>
-        <p><strong>Vertreten durch: </strong>
-            <table>
-                <tr>
-                    <th>
-                        <h2>Chefkoch Manfed Käfer</h2>Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</th>
-                    <th><img src="media/kuechenchef.png"></th>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th><img src="media/kuechenhilfe.png"></th>
-                    <th>
-                        <h2>Restaurant Managerin Stefanie Heidecker</h2>Stefanie Heidecker absolvierte ihrem Bacherlorabschluss in Wirtschaftsmathemaktik an der Universtität Karlsruhe. Sie ist zudem Initiatorin des Leadership-Programms und Partnerin von Manager für Menschen. Ihre Aufgabe besteht aus dem Coaching für Veränderungsprozesse sowie Ansprechpartnerin für Fach- und Führungskräfte und Unternehmen im Raum Frankfurt. </th>
-                </tr>
-            </table>
-        </p> <b> Der Rest von unserem Team:<img src="http://westfalium.de/wp-content/uploads/2015/03/K%C3%BCchenteam.jpg" width="" height=""><br><h4> <u>Von Rechts nach Links:</u> Heiko Mueller, Tobias Heinke, Fabian Skutnik, Nina Schlang, Jurek Beckmann, Jannis Blankenhagen und Dennis Iuliano</h4></content><style>h1{color:black;}</style>
-    </template>
+    <p>Unser freundliches und motiviertes Team heißt alle Gäste herzlich willkommen. Wenn Sie Fragen oder Wünsche zu uns, unseren Leistungen oder bei einem Ihrer Besuche bei uns haben, stehen wir Ihnen gern mit Rat und Tat zur Seite - sprechen Sie uns einfach an.</p>
+    Vertreten durch:
+    <article style="padding: 0 0 110px 0;">
+        <header>
+            <h3 class="ueberschrift">Chefkoch Manfed Käfer</h3></header>
+        <content>
+            <img src="media/kuechenchef.png" style="float: left">
+            <p style="font-weight:normal; ">Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</p>
+        </content>
+    </article>
+    <article style="padding: 0 0 130px 0;">
+        <header>
+            <h3 class="ueberschrift">Restaurant Managerin Stefanie Heidecker</h3></header>
+        <content>
+            <img src="media/kuechenhilfe.png" style="float: left">
+            <p style="font-weight:normal;">Stefanie Heidecker absolvierte ihrem Bacherlorabschluss in Wirtschaftsmathemaktik an der Universtität Karlsruhe. Sie ist zudem Initiatorin des Leadership-Programms und Partnerin von Manager für Menschen. Ihre Aufgabe besteht aus dem Coaching für Veränderungsprozesse sowie Ansprechpartnerin für Fach- und Führungskräfte und Unternehmen im Raum Frankfurt.</p>
+        </content>
+    </article>
+    <article>
+        <header>
+            <h3 class="ueberschrift">Der Rest von unserem Team:</h3></header>
+        <content>
+            <p><u>Von Rechts nach Links:</u> Heiko Mueller, Tobias Heinke, Fabian Skutnik, Nina Schlang, Jurek Beckmann, Jannis Blankenhagen und Dennis Iuliano</p>
+            <img src="media/kuechenteam.jpg" width="60%; height: auto;"></content>
+    </article>
+
+</template>
 <template id="impressum">
     <header>
         <h2><a href="#" title="Impressum">Impressum</a></h2></header>
@@ -328,17 +331,21 @@
     <p>Lieber Besucher,</p>
     <p>derzeit sind Sie nicht eingeloggt. Um Ihre Bestellung aufgeben zu können, müssen Sie sich anmelden! Bitte loggen Sie sich ein...</p>
     <form action="/login" method="post">
-            <input type="text" name="username" placeholder="Benutzername">
-            <input type="password" name="password" placeholder="Passwort">
-            <input type="submit" value="Login">
-        </form>
-    <script>var online=true;</script>
+        <input type="text" name="username" placeholder="Benutzername">
+        <input type="password" name="password" placeholder="Passwort">
+        <input type="submit" value="Login">
+    </form>
+    <script>
+        var online = true;
+    </script>
 </template>
 
-<template id="logout">   
+<template id="logout">
     <h2>Herzlich Willkommen <span id='username'>placeholder</span>,</h2>
-<p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p><form action="/logout" method="get"><input type="submit" value="Logout">
-        
+    <p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p>
+    <form action="/logout" method="get">
+        <input type="submit" value="Logout">
+
 </template>
 
 <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
