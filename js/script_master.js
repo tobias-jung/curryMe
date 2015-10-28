@@ -217,12 +217,16 @@ textstartseite.innerHTML = document.getElementById("startseite").innerHTML;
 //Function Call
 
 function callKontakt() {
+    
+        history.pushState(null, null, "kontakt");
 
     document.getElementById("swap").innerHTML = textkontakt.innerHTML;
 
 }
 
 function callUeberUns() {
+    
+        history.pushState(null, null, "ueberuns");
 
     document.getElementById("swap").innerHTML = textueberuns.innerHTML;
 
@@ -232,6 +236,9 @@ Authentifizierung mittels Authentication Passport
 Author: Tobias Jung
 */
 function callLogIn() {
+    
+    history.pushState(null, null, "login");
+    
     //wenn Benutzer eingeloggt (=true)
     if (isLoggedIn()) {
         document.getElementById("swap").innerHTML = textlogout.innerHTML;
@@ -267,16 +274,20 @@ function getUsername() {
 /*########################*/
 
 function callImpressum() {
+    history.pushState(null, null, "impressum");
     document.getElementById("swap").innerHTML = textimpressum.innerHTML;
 }
 
 function callStartseite() {
 
+    history.pushState(null, null, "startseite");
     document.getElementById("swap").innerHTML = textstartseite.innerHTML;
 
 }
 
 function callSpeisekarte() {
+    
+    history.pushState(null, null, "speisekarte");
 
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
@@ -329,6 +340,8 @@ function callSpeisekarte() {
 }
 
 function callWarenkorb() {
+    
+    history.pushState(null, null, "warenkorb");
 
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
@@ -496,3 +509,4 @@ function bestellen() {
     }
 
 }
+
