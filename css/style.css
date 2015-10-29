@@ -190,53 +190,6 @@
                 background-color: white;
             }
             
-            .form label {
-                display: block;
-            }
-            
-            .form input[type=radio],
-            input[type=checkbox] {
-                display: inline-block;
-                width: 13px;
-            }
-            
-            .form div {
-                display: block;
-                background-color: white;
-            }
-            
-            .form input,
-            form textarea,
-            form select {
-                border-width: 1px;
-                border-style: solid;
-                border-color: dimgray;
-                border-radius: 3px;
-                padding: 3px;
-                width: 100%;
-            }
-            
-            .intro {
-                margin-bottom: 10px;
-            }
-            
-            .clear {
-                clear: both;
-            }
-            
-            .form textarea {
-                height: 200px;
-                width: 100%;
-            }
-            
-            .form input[type=submit] {
-                float: right;
-                width: 15%;
-                background-color: #FFC125;
-                color: white;
-                border: 0px;
-            }
-            
             .field {
                 margin-bottom: 10px;
             }
