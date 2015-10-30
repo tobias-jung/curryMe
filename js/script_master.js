@@ -466,7 +466,7 @@ function init() {
 
         
         clock_face = new Image();
-        clock_face.src = './media/flip_clock_small.png';
+        clock_face.src = './media/flip_clock_small_hd.png';
         clock_face.onload = imgLoaded;
 
         xPositions = Array(DIGIT_WIDTH * 0,
