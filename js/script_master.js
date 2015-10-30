@@ -330,7 +330,7 @@ function callSpeisekarte() {
 
         
 
-        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€)</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
+        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
 
 
         postenDiv.appendChild(posten);
@@ -513,7 +513,9 @@ function bestellen() {
 
 }
 
-window.onpopstate = function(event) {
+window.onpopstate = popstatehandler;
+
+ function popstatehandler(event) {
 
 
     if (history.state != null) {
@@ -544,10 +546,7 @@ window.onpopstate = function(event) {
     }
     
         }
-    else
-    {
-     history.state = 6;   
-    }
+
 }
     
 
