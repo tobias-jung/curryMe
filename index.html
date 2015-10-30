@@ -10,18 +10,18 @@
 
 </head>
 
-<body class="body" onload='init();'>
+<body onload='init();'>
     <header class="mainheader">
         <img src="media/logo.png" alt="CurryMe">
         <div class="clock">
-            <canvas id="clock" width="200" height="59"></canvas>
+            <canvas id="clock" width="170" height="59"></canvas>
         </div>
         <nav>
             <ul>
                 <li>
                     <a href="#" onclick="callStartseite()">Startseite</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#" onclick="callSpeisekarte()">Speisekarte</a>
                 </li>
                 <li>
@@ -37,7 +37,6 @@
                 </li>
                 <li>
                     <a href="#" onclick="callImpressum()">Impressum</a>
-
                 </li>
                 <li>
                     <a class="warenkorb" href="#" onclick="callWarenkorb()">Warenkorb</a>
@@ -75,7 +74,7 @@
 
         </aside>
     </div>
-    <footer class="mainfooter ">
+    <footer class="mainfooter">
         <ul class="kontakt">
             <li>
                 <h2>Anfahrt</h2></li>
@@ -103,40 +102,69 @@
     </footer>
 </body>
 <template id="kontakt">
-    <form id="form" class="form" name="form" action="/contact" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete>
-        <header>
-            <h2><a href="# " title="Kontaktiere uns!">Kontaktiere uns!</a></h2></header>
-        <div class="field">
-            <div id="field1-container" class="field f_100 ui-resizable-disabled ui-state-disabled">
-                <label for="field1">
-                    Name, Vorname
-                </label>
-                <input type="text" name="field1" id="field1" required="required">
+    <header>
+        <h2><a href="# " title="Kontaktiere uns!">Kontaktiere uns!</a></h2></header>
+    <form class="form-horizontal">
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Name, Vorname</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="Max Mustermann" class="form-control input-md" required="">
             </div>
+        </div>
 
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">E-Mail-Adresse</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="maxmustermann@example.de" class="form-control input-md" required="">
 
-            <div id="field6-container" class="field f_100 ui-resizable-disabled ui-state-disabled">
-                <label for="field6">
-                    E-Mail Addresse
-                </label>
-                <input type="email" name="field6" id="field6" required="required">
             </div>
+        </div>
 
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Telefonnummer</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
 
-            <div id="field4-container" class="field f_100 ui-resizable-disabled ui-state-disabled">
-                <label for="field4">
-                    Telefonnummer
-                </label>
-                <input type="text" name="field4" id="field4">
             </div>
+        </div>
 
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Order-ID</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
 
-            <div id="field5-container" class="field f_100 ui-resizable-disabled ui-state-disabled">
-                <label for="field5">
-                    Deine Nachricht
-                </label>
-                <textarea rows="5" cols="20" name="field5" id="field5" required="required"></textarea>
             </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Betreff</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Deine Nachricht</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="textarea" type="text" name="textarea"></textarea>
+            </div>
+        </div>
+
+        <!-- File Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="filebutton">Bild änhängen</label>
+            <div class="col-md-4">
+                <input id="filebutton" name="filebutton" class="input-file" type="file">
+            </div>
+        </div>
+        <div class="radiobuttons">
             <div>
                 <input type="radio" name="radio" id="radio1" class="radio" checked/>
                 <label for="radio1" class="radiolabel">Super</label>
@@ -154,11 +182,14 @@
                 <label for="radio4" class="radiolabel">Super³</label>
             </div>
         </div>
-        <div id="form-submit" class="field f_100 clearfix submit">
-            <input type="submit" value="Submit">
+        <!-- Button -->
+        <div class="form-group submitbutton">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="myButton">Abschicken</button>
+            </div>
         </div>
     </form>
-
 </template>
 <template id="startseite">
     <header>
@@ -172,23 +203,23 @@
         <h2><a href="# " title="Über uns">Über uns</a></h2></header>
     <p>Unser freundliches und motiviertes Team heißt alle Gäste herzlich willkommen. Wenn Sie Fragen oder Wünsche zu uns, unseren Leistungen oder bei einem Ihrer Besuche bei uns haben, stehen wir Ihnen gern mit Rat und Tat zur Seite - sprechen Sie uns einfach an.</p>
     Vertreten durch:
-    <article style="display: inline-block;">
+    <article class="styleueberuns">
         <header>
             <h3 class="ueberschrift">Chefkoch Manfed Käfer</h3></header>
         <content>
-            <img src="media/kuechenchef.png" style="float: left">
-            <p style="font-weight:normal; padding-left: 160px; padding-right: 10px;">Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</p>
+            <img src="media/kuechenchef.png">
+            <p>Er erhielt für seine Hochleistungen schon in der Ausbildung zahlreiche Auszeichnungen. Als Küchenchef und Gastgeber wird er Sie mit seiner hervorragenden Küche überaus verwöhnen. Höchste Qualität sowie höchster Standard bei Produkten und Zubereitung verstehen sich von selbst. Die Kompositionen - mal klassisch, mal innovativ - sind immer wieder überraschend, zumal der Küchenchef und sein Team die Kreationen fortlaufend überdenken und damit zu höchster Perfektion bringen.</p>
         </content>
     </article>
-    <article style="display: inline-block;">
+    <article class="styleueberuns">
         <header>
             <h3 class="ueberschrift">Restaurant Managerin Stefanie Heidecker</h3></header>
         <content>
-            <img src="media/kuechenhilfe.png" style="float: left">
-            <p style="font-weight:normal; padding-left: 160px; padding-right: 10px;">Stefanie Heidecker absolvierte ihrem Bacherlorabschluss in Wirtschaftsmathemaktik an der Universtität Karlsruhe. Sie ist zudem Initiatorin des Leadership-Programms und Partnerin von Manager für Menschen. Ihre Aufgabe besteht aus dem Coaching für Veränderungsprozesse sowie Ansprechpartnerin für Fach- und Führungskräfte und Unternehmen im Raum Frankfurt.</p>
+            <img src="media/kuechenhilfe.png">
+            <p>Stefanie Heidecker absolvierte ihrem Bacherlorabschluss in Wirtschaftsmathemaktik an der Universtität Karlsruhe. Sie ist zudem Initiatorin des Leadership-Programms und Partnerin von Manager für Menschen. Ihre Aufgabe besteht aus dem Coaching für Veränderungsprozesse sowie Ansprechpartnerin für Fach- und Führungskräfte und Unternehmen im Raum Frankfurt.</p>
         </content>
     </article>
-    <article style="display: inline-block;">
+    <article>
         <header>
             <h3 class="ueberschrift">Der Rest von unserem Team:</h3></header>
         <content>
@@ -265,9 +296,9 @@
     <p>Lieber Besucher,</p>
     <p>derzeit sind Sie nicht eingeloggt. Um Ihre Bestellung aufgeben zu können, müssen Sie sich anmelden! Bitte loggen Sie sich ein...</p>
     <form action="/login" method="post">
-        <input type="text" name="username" placeholder="Benutzername">
-        <input type="password" name="password" placeholder="Passwort">
-        <input type="submit" value="Login">
+        <input class="textinputstyle" type="text" name="username" placeholder="Benutzername">
+        <input class="textinputstyle" type="password" name="password" placeholder="Passwort">
+        <input class="myButton" type="submit" value="Login">
     </form>
     <script>
         //    var online = true;
@@ -279,7 +310,7 @@
         <h2><a href="# " title="Logout">Herzlich Willkommen <span id='username'>placeholder</span>,</a></h2></header>
     <p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p>
     <form action="/logout" method="get">
-        <input type="submit" value="Logout">
+        <input class="myButton" type="submit" value="Logout">
 
 </template>
 

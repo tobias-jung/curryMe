@@ -68,40 +68,40 @@ function del(artikel_id) {
 }
 
 function delButton(artikel_id) {
-    
+
     del(artikel_id);
     callWarenkorb();
     callSidebar();
-                   
-    
-                    }
+
+
+}
 
 function addButton(artikel_id) {
-    
-                   
+
+
     add(artikel_id);
     callWarenkorb();
     callSidebar();
-    
-                    }
+
+}
 
 function delButtonSpeisekarte(artikel_id) {
-    
+
     del(artikel_id);
-callSpeisekarte();
+    callSpeisekarte();
     callSidebar();
-                   
-    
-                    }
+
+
+}
 
 function addButtonSpeisekarte(artikel_id) {
-    
-                   
+
+
     add(artikel_id);
     callSpeisekarte();
     callSidebar();
-    
-                    }
+
+}
 
 
 /*
@@ -131,7 +131,7 @@ function handleDrop(event) {
     add(data);
     callSidebar();
 
-    
+
 }
 
 function callSidebar() {
@@ -219,18 +219,18 @@ textstartseite.innerHTML = document.getElementById("startseite").innerHTML;
 //Function Call
 
 function callKontakt() {
-    
-        history.pushState(hstate, null, "kontakt");
-        hstate = 1;
+
+    history.pushState(hstate, null, "kontakt");
+    hstate = 1;
 
     document.getElementById("swap").innerHTML = textkontakt.innerHTML;
 
 }
 
 function callUeberUns() {
-    
-        history.pushState(hstate, null, "ueberuns");
-        hstate = 6;
+
+    history.pushState(hstate, null, "ueberuns");
+    hstate = 6;
 
     document.getElementById("swap").innerHTML = textueberuns.innerHTML;
 
@@ -240,10 +240,10 @@ Authentifizierung mittels Authentication Passport
 Author: Tobias Jung
 */
 function callLogIn() {
-    
+
     history.pushState(hstate, null, "login");
     hstate = 3;
-    
+
     //wenn Benutzer eingeloggt (=true)
     if (isLoggedIn()) {
         document.getElementById("swap").innerHTML = textlogout.innerHTML;
@@ -293,7 +293,7 @@ function callStartseite() {
 }
 
 function callSpeisekarte() {
-    
+
     history.pushState(hstate, null, "speisekarte");
     hstate = 4;
 
@@ -328,7 +328,7 @@ function callSpeisekarte() {
         posten.className = "produkte";
         posten.border = 1;
 
-        
+
 
         posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
 
@@ -348,7 +348,7 @@ function callSpeisekarte() {
 }
 
 function callWarenkorb() {
-    
+
     history.pushState(hstate, null, "warenkorb");
     hstate = 7;
 
@@ -393,6 +393,7 @@ function callWarenkorb() {
 
     var button = document.createElement("button");
     button.type = "button";
+    button.className += " myButton";
     button.onclick = bestellen;
     button.innerHTML = "Bestellung abschicken";
 
@@ -411,7 +412,7 @@ var clock_face = null,
     ctx = null;
 
 var IMG_HEIGHT = 59,
-    IMG_WIDTH = 346,
+    IMG_WIDTH = 170,
     DIGIT_HEIGHT = IMG_HEIGHT,
     DIGIT_WIDTH = 34.5,
     xPositions = null,
@@ -420,8 +421,8 @@ var IMG_HEIGHT = 59,
     secondHeight = 0;
 
 function clearCanvas() {
-    
-    
+
+
     ctx.clearRect(0, 0, IMG_HEIGHT, IMG_WIDTH);
 }
 
@@ -464,7 +465,7 @@ function init() {
     if (canvas.getContext('2d')) {
         ctx = canvas.getContext('2d');
 
-        
+
         clock_face = new Image();
         clock_face.src = './media/flip_clock_small_hd.png';
         clock_face.onload = imgLoaded;
@@ -515,13 +516,13 @@ function bestellen() {
 
 window.onpopstate = popstatehandler;
 
- function popstatehandler(event) {
+function popstatehandler(event) {
 
 
     if (history.state != null) {
-    
-    switch (event.state) {
-     
+
+        switch (event.state) {
+
         case 1:
             callImpressum();
             break;
@@ -543,10 +544,8 @@ window.onpopstate = popstatehandler;
         case 7:
             callWarenkorb();
             break;
-    }
-    
         }
 
-}
-    
+    }
 
+}
