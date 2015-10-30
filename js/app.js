@@ -58,22 +58,13 @@ passport.deserializeUser(function (id, done) {
         name: id
     });
 });
-/*
-app.get('/', function (req, res) {
-
-    res.render('login', {
-        isAuthenticated: req.isAuthenticated(),
-        user: req.user
-
-    });
-});
-*/
-
+//POST-Methode fuer Login
 app.post('/login', passport.authenticate('local'), function (req, res) {
     res.redirect('/');
 
 });
 
+//Methode zum pruefen, ob User eingeloggt
 app.get('/verify', function (req, res) {
     if (login == true) {
         res.send(benutzer);
@@ -83,12 +74,14 @@ app.get('/verify', function (req, res) {
     }
 });
 
+//Methode zum Ausloggen des Users, bei Klick auf "Logout"
 app.get('/logout', function (req, res) {
     req.logout();
     setLogin();
     res.redirect('/');
 });
 
+//Pseudo-Methode zum "Versenden" des Kontaktformulars
 app.post('/contact', function (req, res) {
     res.redirect('/');
 });
