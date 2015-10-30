@@ -1,6 +1,8 @@
 resObjekt = new XMLHttpRequest();
 var artikel;
 var benutzer;
+var hstate;
+var hstate = 5;
 
 
 function sndReq() {
@@ -218,7 +220,8 @@ textstartseite.innerHTML = document.getElementById("startseite").innerHTML;
 
 function callKontakt() {
     
-        history.pushState(null, null, "kontakt");
+        history.pushState(hstate, null, "kontakt");
+        hstate = 1;
 
     document.getElementById("swap").innerHTML = textkontakt.innerHTML;
 
@@ -226,7 +229,8 @@ function callKontakt() {
 
 function callUeberUns() {
     
-        history.pushState(null, null, "ueberuns");
+        history.pushState(hstate, null, "ueberuns");
+        hstate = 6;
 
     document.getElementById("swap").innerHTML = textueberuns.innerHTML;
 
@@ -237,7 +241,8 @@ Author: Tobias Jung
 */
 function callLogIn() {
     
-    history.pushState(null, null, "login");
+    history.pushState(hstate, null, "login");
+    hstate = 3;
     
     //wenn Benutzer eingeloggt (=true)
     if (isLoggedIn()) {
@@ -274,20 +279,23 @@ function getUsername() {
 /*########################*/
 
 function callImpressum() {
-    history.pushState(null, null, "impressum");
+    history.pushState(hstate, null, "impressum");
+    hstate = 1;
     document.getElementById("swap").innerHTML = textimpressum.innerHTML;
 }
 
 function callStartseite() {
 
-    history.pushState(null, null, "startseite");
+    history.pushState(hstate, null, "startseite");
+    hstate = 5;
     document.getElementById("swap").innerHTML = textstartseite.innerHTML;
 
 }
 
 function callSpeisekarte() {
     
-    history.pushState("speisekarte", null, "speisekarte");
+    history.pushState(hstate, null, "speisekarte");
+    hstate = 4;
 
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
@@ -341,7 +349,8 @@ function callSpeisekarte() {
 
 function callWarenkorb() {
     
-    history.pushState(null, null, "warenkorb");
+    history.pushState(hstate, null, "warenkorb");
+    hstate = 7;
 
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
@@ -395,11 +404,6 @@ function callWarenkorb() {
 }
 
 
-
-
-
-
-
 //Canvas Uhr
 
 // Global variable
@@ -416,7 +420,8 @@ var IMG_HEIGHT = 59,
     secondHeight = 0;
 
 function clearCanvas() {
-    // clear canvas
+    
+    
     ctx.clearRect(0, 0, IMG_HEIGHT, IMG_WIDTH);
 }
 
@@ -432,7 +437,7 @@ function draw() {
 
     clearCanvas();
 
-    // Draw the HHHH digits onto the canvas
+
     for (iDigit = 0; iDigit < 4; iDigit++) {
         drawHHMMDigit(time, iDigit);
     }
@@ -447,21 +452,19 @@ function drawHHMMDigit(time, unit) {
 }
 
 function imgLoaded() {
-    // Image loaded event complete.  Start the timer
     setInterval(draw, 1000);
 }
 
+
 function init() {
-    // Grab the clock element
     var canvas = document.getElementById('clock'),
         iHHMMGap = 25,
         iSSGap = 0;
 
-    // Canvas supported?
     if (canvas.getContext('2d')) {
         ctx = canvas.getContext('2d');
 
-        // Load the clock face image
+        
         clock_face = new Image();
         clock_face.src = './media/flip_clock_small.png';
         clock_face.onload = imgLoaded;
@@ -512,7 +515,39 @@ function bestellen() {
 
 window.onpopstate = function(event) {
 
+
+    if (history.state != null) {
+    
+    switch (event.state) {
+     
+        case 1:
+            callImpressum();
+            break;
+        case 2:
+            callKontakt();
+            break;
+        case 3:
+            callLogIn();
+            break;
+        case 4:
+            callSpeisekarte();
+            break;
+        case 5:
+            callStartseite();
+            break;
+        case 6:
+            callUeberUns();
+            break;
+        case 7:
+            callWarenkorb();
+            break;
+    }
     
         }
+    else
+    {
+     history.state = 6;   
+    }
+}
     
 
