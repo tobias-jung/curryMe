@@ -487,6 +487,9 @@ function init() {
 function bestellen() {
 
     if (isLoggedIn() == true) {
+        
+        if (getArtikelGesamtsumme() != 0)
+        {
         alert("Ihre Bestellung wurde abgeschicket");
         sndReq();
         callSpeisekarte();
@@ -506,6 +509,11 @@ function bestellen() {
         document.getElementById("warenkorb-sidebar").appendChild(bild1);
         document.getElementById("warenkorb-sidebar").appendChild(br);
         document.getElementById("warenkorb-sidebar").appendChild(bild);
+        }
+        else{
+         
+            alert("Es befindet sich nichts im Warenkorb");
+        }
 
 
     } else {
