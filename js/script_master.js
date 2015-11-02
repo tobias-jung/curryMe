@@ -493,7 +493,7 @@ function bestellen() {
     if (isLoggedIn() == true) {
 
         if (getArtikelGesamtsumme() != 0) {
-            alert("Ihre Bestellung wurde abgeschicket");
+            alert("Ihre Bestellung wurde abgeschickt");
             sndReq();
             callSpeisekarte();
 
@@ -519,7 +519,7 @@ function bestellen() {
 
 
     } else {
-        alert("Bitte mdelden sie sich an, um ihre Bestellung abzuschicken");
+        alert("Bitte melden sie sich an, um ihre Bestellung abzuschicken");
     }
 
 }
