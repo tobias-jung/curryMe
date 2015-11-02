@@ -2,8 +2,10 @@
                 /* CSS Document */
                 
                 body {
-                    background-image: url(../media/currybg.png);
-                    background-repeat: repeat;
+                    background-image: url(../media/spices.jpg);
+                    background-attachment: fixed;
+                    background-size: cover;
+                    background-repeat: no-repeat;
                     color: #000305;
                     font-size: 87.5%;
                     font-family: Arial, 'Lucida Sans Unicode';
@@ -20,6 +22,30 @@
                     color: #ffc125;
                 }
                 
+                .bordershaddow {
+                    position: relative;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+                }
+                
+                .bordershaddow:before,
+                .bordershaddow:after {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+                    top: 10px;
+                    bottom: 10px;
+                    left: 0;
+                    right: 0;
+                    border-radius: 100px / 10px;
+                }
+                
+                .bordershaddow:after {
+                    right: 10px;
+                    left: auto;
+                    transform: skew(8deg) rotate(3deg);
+                }
+                
                 a:link,
                 a:visited {
                     color: #ffc125;
@@ -33,7 +59,6 @@
                 
                 .mainheader {
                     width: 100%;
-                    background-color: #666;
                     -moz-border-radius: 5px;
                     -webkit-border-bottom-left-radius: 5px;
                     -webkit-border-bottom-right-radius: 5px;
@@ -55,7 +80,6 @@
                 
                 .mainheader nav {
                     padding: 132px 0 0 0;
-                    background-color: #666;
                     height: 40px;
                     -moz-border-radius: 5px;
                     -webkit-border-radius: 5px;
@@ -100,13 +124,13 @@
                 }
                 
                 .content {
-                    padding: 10px 0 0 25px;
+                    margin-top: 10px;
+                    padding: 10px 0 10px 25px;
                     -moz-border-radius: 5px;
                     -webkit-border-radius: 5px;
                     border-radius: 5px;
                     float: left;
                     width: 70%;
-                    background-color: white;
                 }
                 
                 .allcontent {
@@ -122,7 +146,6 @@
                     -moz-border-radius: 5px;
                     -webkit-border-radius: 5px;
                     border-radius: 5px;
-                    background-color: white;
                     margin: 10px 0 10px 10px;
                     padding: 10px;
                 }
@@ -144,7 +167,6 @@
                 .top-sidebar {
                     float: right;
                     min-width: 420px;
-                    background-color: white;
                     -moz-border-radius: 5px;
                     -webkit-border-radius: 5px;
                     border-radius: 5px;
@@ -169,7 +191,6 @@
                     -moz-border-radius: 5px;
                     -webkit-border-radius: 5px;
                     border-radius: 5px;
-                    background-color: #666;
                     margin: 2% 0;
                 }
                 
@@ -252,10 +273,6 @@
                     text-decoration: none;
                 }
                 
-                .submitbutton {
-                    margin-top: 50px;
-                }
-                
                 .myButton:hover {
                     background-color: #ffc72e;
                 }
@@ -273,7 +290,7 @@
                 .radiolabel {
                     width: 200px;
                     border-radius: 3px;
-                    border: 1px solid #D1D3D4;
+                    border: 1px solid #fff;
                     margin-right: 5px;
                 }
                 
@@ -302,7 +319,7 @@
                     left: 0;
                     content: "";
                     width: 2.5em;
-                    background: #D1D3D4;
+                    background: #fff;
                     border-radius: 3px 0 0 3px;
                 }
                 
@@ -313,7 +330,7 @@
                 }
                 
                 input.radio:hover:not(:checked) ~ label {
-                    color: #888;
+                    color: #C2C2C2;
                 }
                 
                 input.radio:checked ~ label:before {
@@ -323,11 +340,11 @@
                 }
                 
                 input.radio:checked ~ label {
-                    color: #777;
+                    color: #C2C2C2;
                 }
                 
                 input.radio:focus ~ label:before {
-                    box-shadow: 0 0 0 3px #999;
+                    box-shadow: 0 0 0 3px #C2C2C2;
                 }
                 
                 .radio {
@@ -433,9 +450,168 @@
                     background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
                 }
                 
-                @media only screen and (min-width: 826px) and (max-width: 1590px) {
+                .go-cool {
+                    background-color: rgba(0, 0, 0, 0.6);
+                    color: #FFFFFF;
+                }
+                
+                .rainbow:hover {
+                    -webkit-animation: rainbow 1s infinite;
+                    -ms-animation: rainbow 1s infinite;
+                    -o-animation: rainbow 1s infinite;
+                    animation: rainbow 1s infinite;
+                }
+                
+                @-webkit-keyframes rainbow {
+                    0% {
+                        color: #ff0000;
+                    }
+                    10% {
+                        color: #ff8000;
+                    }
+                    20% {
+                        color: #ffff00;
+                    }
+                    30% {
+                        color: #80ff00;
+                    }
+                    40% {
+                        color: #00ff00;
+                    }
+                    50% {
+                        color: #00ff80;
+                    }
+                    60% {
+                        color: #00ffff;
+                    }
+                    70% {
+                        color: #0080ff;
+                    }
+                    80% {
+                        color: #0000ff;
+                    }
+                    90% {
+                        color: #8000ff;
+                    }
+                    100% {
+                        color: #ff0080;
+                    }
+                }
+                
+                @-ms-keyframes rainbow {
+                    0% {
+                        color: #ff0000;
+                    }
+                    10% {
+                        color: #ff8000;
+                    }
+                    20% {
+                        color: #ffff00;
+                    }
+                    30% {
+                        color: #80ff00;
+                    }
+                    40% {
+                        color: #00ff00;
+                    }
+                    50% {
+                        color: #00ff80;
+                    }
+                    60% {
+                        color: #00ffff;
+                    }
+                    70% {
+                        color: #0080ff;
+                    }
+                    80% {
+                        color: #0000ff;
+                    }
+                    90% {
+                        color: #8000ff;
+                    }
+                    100% {
+                        color: #ff0080;
+                    }
+                }
+                
+                @-o-keyframes rainbow {
+                    0% {
+                        color: #ff0000;
+                    }
+                    10% {
+                        color: #ff8000;
+                    }
+                    20% {
+                        color: #ffff00;
+                    }
+                    30% {
+                        color: #80ff00;
+                    }
+                    40% {
+                        color: #00ff00;
+                    }
+                    50% {
+                        color: #00ff80;
+                    }
+                    60% {
+                        color: #00ffff;
+                    }
+                    70% {
+                        color: #0080ff;
+                    }
+                    80% {
+                        color: #0000ff;
+                    }
+                    90% {
+                        color: #8000ff;
+                    }
+                    100% {
+                        color: #ff0080;
+                    }
+                }
+                
+                @keyframes rainbow {
+                    0% {
+                        color: #ff0000;
+                    }
+                    10% {
+                        color: #ff8000;
+                    }
+                    20% {
+                        color: #ffff00;
+                    }
+                    30% {
+                        color: #80ff00;
+                    }
+                    40% {
+                        color: #00ff00;
+                    }
+                    50% {
+                        color: #00ff80;
+                    }
+                    60% {
+                        color: #00ffff;
+                    }
+                    70% {
+                        color: #0080ff;
+                    }
+                    80% {
+                        color: #0000ff;
+                    }
+                    90% {
+                        color: #8000ff;
+                    }
+                    100% {
+                        color: #ff0080;
+                    }
+                }
+                
+                @media only screen and (min-width: 847px) and (max-width: 1590px) {
                     .mainheader nav a.warenkorb {
                         display: block;
+                    }
+                    .mainheader {
+                        width: 100%;
                     }
                     .top-sidebar {
                         display: none;
@@ -448,6 +624,9 @@
                     }
                     .maincontent {
                         width: 90%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        padding: 0px;
                     }
                     .swap {
                         width: 100%;
@@ -456,16 +635,19 @@
                         padding-top: 10px;
                         margin: 0px auto 5px auto;
                     }
+                    .content {
+                        padding: 0 10px;
+                    }
                 }
                 
-                @media only screen and (min-width: 150px) and (max-width: 825px) {
+                @media only screen and (min-width: 150px) and (max-width: 846px) {
                     .body {
                         width: 100%;
                         font-size: 95%
                     }
                     .mainheader img {
                         position: absolute;
-                        top: -780px;
+                        top: -775px;
                         bottom: 0;
                         left: 0;
                         right: 0;
@@ -507,10 +689,13 @@
                         margin-right: auto;
                     }
                     .content {
+                        padding: 0px 10px;
                         width: 100%;
                     }
                     .maincontent {
-                        width: 90%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 95%;
                     }
                     .swap {
                         width: 100%;
@@ -520,7 +705,6 @@
                         margin: 0px auto 5px auto;
                     }
                     .topcontent {
-                        background-color: white;
                         -moz-border-radius: 5px;
                         -webkit-border-radius: 5px;
                         border-radius: 5px;
@@ -529,10 +713,10 @@
                         margin-bottom: 3%;
                     }
                     .form-group div input {
-                        width: 100%;
+                        width: 90%;
                     }
                     .form-group div textarea {
-                        width: 100%;
+                        width: 90%;
                     }
                     .bottomcontent {
                         margin-top: 3%;
