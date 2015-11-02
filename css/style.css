@@ -663,6 +663,10 @@
                 }
                 
                 @media only screen and (min-width: 150px) and (max-width: 869px) {
+                    .supercoolgif,
+                    .wuerstsche {
+                        display: none;
+                    }
                     .body {
                         width: 100%;
                         font-size: 95%
