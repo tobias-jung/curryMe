@@ -143,59 +143,56 @@ function handleDrop(event) {
 }
 
 function callSidebar() {
-    
-    
+
+
 
     var myNode = document.getElementById("warenkorb-sidebar");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
 
-    if (getArtikelGesamtsumme() != 0)
-        {
-    
-    var tabelle = document.createElement("table");
-    tabelle.border = 0;
+    if (getArtikelGesamtsumme() != 0) {
 
-    var heading = document.createElement("tr");
-    heading.innerHTML = "<th>Anzahl</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th>";
+        var tabelle = document.createElement("table");
+        tabelle.border = 0;
 
-    tabelle.appendChild(heading);
+        var heading = document.createElement("tr");
+        heading.innerHTML = "<th>Anzahl</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th>";
 
-    for (var i = 0; i < getArtikel().length; i++) {
+        tabelle.appendChild(heading);
 
-
-        if (artikel[i].anzahl > 0) {
-
-            var position = document.createElement("tr")
-            position.innerHTML = "<td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].name + "</td><td>" + artikel[i].preis + "€</td><td>" + ((artikel[i].preis) * (artikel[i].anzahl)).toFixed(2) + "€</td>"
-
-            tabelle.appendChild(position);
+        for (var i = 0; i < getArtikel().length; i++) {
 
 
+            if (artikel[i].anzahl > 0) {
 
+                var position = document.createElement("tr")
+                position.innerHTML = "<td>" + artikel[i].anzahl + "x</td><td>" + artikel[i].name + "</td><td>" + artikel[i].preis + "€</td><td>" + ((artikel[i].preis) * (artikel[i].anzahl)).toFixed(2) + "€</td>"
+
+                tabelle.appendChild(position);
+
+
+
+
+            }
+
+            var gesamtsummeTabelle = document.createElement("table");
+            gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
+
+
+            document.getElementById("warenkorb-sidebar").appendChild(tabelle);
 
         }
+        document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
+    } else {
+        var bild1 = document.createElement("img");
+        var br = document.createElement("br");
+        bild1.src = "media/drag_drop.png";
+        document.getElementById("warenkorb-sidebar").appendChild(bild1);
+        document.getElementById("warenkorb-sidebar").appendChild(br);
 
-        var gesamtsummeTabelle = document.createElement("table");
-        gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
-
-
-        document.getElementById("warenkorb-sidebar").appendChild(tabelle);
 
     }
-    document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
-}
-else
-{
-            var bild1 = document.createElement("img");
-            var br = document.createElement("br");
-            bild1.src = "media/drag_drop.png";
-            document.getElementById("warenkorb-sidebar").appendChild(bild1);
-            document.getElementById("warenkorb-sidebar").appendChild(br);
-            
-    
-}
 
     var bild = document.createElement("div");
     var br = document.createElement("br");
@@ -587,9 +584,8 @@ function popstatehandler(event) {
 }
 
 function callEasterEg() {
+    document.getElementById("audiotag1").play();
     document.getElementById("logo1").style.display = "none";
     document.getElementById("logo2").style.display = "block";
     document.getElementById("swap").innerHTML = texteastereg.innerHTML;
-
-
 }
