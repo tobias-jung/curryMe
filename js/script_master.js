@@ -62,6 +62,10 @@ function del(artikel_id) {
 
         if (artikel[i].id == artikel_id) {
             artikel[i].anzahl--;
+            
+            if (artikel[i].anzahl < 0) {
+             artikel[i].anzahl = 0;   
+            }
         }
 
     }
@@ -330,7 +334,7 @@ function callSpeisekarte() {
 
 
 
-        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td>" + artikel[i].name + "</td><td>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
+        posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td   width='" + ((document.getElementById("swap").clientWidth) * 0.1) + "'>" + artikel[i].name + "</td><td width='" + ((document.getElementById("swap").clientWidth) * 0.2) + "'>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
 
 
         postenDiv.appendChild(posten);
