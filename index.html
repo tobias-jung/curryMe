@@ -16,7 +16,7 @@
         <div class="clock">
             <canvas id="clock" width="170" height="59"></canvas>
         </div>
-        <img style="width:5%; float: right;" src="https://hotdogsareyummy.files.wordpress.com/2014/05/dancing-hotdog-couple.gif">
+        <img style="width:5%; float: right;" src="https://hotdogsareyummy.files.wordpress.com/2014/05/dancing-hotdog-couple.gif" draggable="true" ondragstart=drag(event) id="99">
         <nav>
             <ul>
                 <li>
@@ -50,42 +50,7 @@
         <div class="content go-cool">
 
             <div id="swap">
-                <article>
-                    <header>
-                        <h2><a href="#" title="Wuhui">Trololol</a></h2></header>
-
-                    <p><pre class="rainbow">               _________________      ____         __________
- .       .    /                 |    /    \    .  |          \
-     .       /    ______   _____| . /      \      |    ___    |     .     .
-             \    \    |   |       /   /\   \     |   |___>   |
-           .  \    \   |   |      /   /__\   \  . |         _/             .
- .     ________>    |  |   | .   /            \   |   |\    \_______    .
-      |            /   |   |    /    ______    \  |   | \           |
-      |___________/    |___|   /____/      \____\ |___|  \__________|    .
-  .     ____    __  . _____   ____      .  __________   .  _________
-       \    \  /  \  /    /  /    \       |          \    /         |      .
-        \    \/    \/    /  /      \      |    ___    |  /    ______|  .
-         \              /  /   /\   \ .   |   |___>   |  \    \
-   .      \            /  /   /__\   \    |         _/.   \    \
-           \    /\    /  /            \   |   |\    \______>    |   .
-            \  /  \  /  /    ______    \  |   | \              /          .
- .       .   \/    \/  /____/      \____\ |___|  \____________/  LS<br>         _____
-       .'/L|__`.
-      / =[_]O|` \
-      |"+_____":|
-    __:='|____`-:__
-   ||[] ||====| []||
-   ||[] | |=| | []||
-   |:||_|=|U| |_||:|
-   |:|||]_=_ =[_||:| LS
-   | |||] [_][]C|| |
-   | ||-'"""""`-|| |
-   /|\\_\_|_|_/_//|\
-  |___|   /|\   |___|   R2 Astromech Droid
-  `---'  |___|  `---'     - Front View -
-         `---'</pre>
-                    </p>
-                </article>
+               
                 <article style="text-align: center;">
                     <header>
                         <h2><a href="#" title="Willkommen">Willkommen auf CurryMe!</a></h2></header>
@@ -103,6 +68,7 @@
                 <x-impressum></x-impressum>
                 <ueber-uns></ueber-uns>
                 <x-startseite></x-startseite>
+                <eastereg></eastereg>
 
             </div>
         </div>
@@ -337,6 +303,60 @@
         <input class="textinputstyle" type="password" name="password" placeholder="Passwort">
         <input class="myButton" type="submit" value="Login">
     </form>
+    <script>
+        //    var online = true;
+    </script>
+</template>
+
+<template id="logout">
+    <header>
+        <h2><a href="#" title="Logout">Herzlich Willkommen <span id='username'>placeholder</span>,</a></h2></header>
+    <p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p>
+    <form action="/logout" method="get">
+        <input class="myButton" type="submit" value="Logout">
+
+</template>
+    
+
+    <template id="eastereg">
+
+         <article>
+                    <header>
+                        <h2><a href="#" title="Wuhui">Trololol</a></h2></header>
+
+                    <p><pre class="rainbow">               _________________      ____         __________
+ .       .    /                 |    /    \    .  |          \
+     .       /    ______   _____| . /      \      |    ___    |     .     .
+             \    \    |   |       /   /\   \     |   |___>   |
+           .  \    \   |   |      /   /__\   \  . |         _/             .
+ .     ________>    |  |   | .   /            \   |   |\    \_______    .
+      |            /   |   |    /    ______    \  |   | \           |
+      |___________/    |___|   /____/      \____\ |___|  \__________|    .
+  .     ____    __  . _____   ____      .  __________   .  _________
+       \    \  /  \  /    /  /    \       |          \    /         |      .
+        \    \/    \/    /  /      \      |    ___    |  /    ______|  .
+         \              /  /   /\   \ .   |   |___>   |  \    \
+   .      \            /  /   /__\   \    |         _/.   \    \
+           \    /\    /  /            \   |   |\    \______>    |   .
+            \  /  \  /  /    ______    \  |   | \              /          .
+ .       .   \/    \/  /____/      \____\ |___|  \____________/  LS<br>         _____
+       .'/L|__`.
+      / =[_]O|` \
+      |"+_____":|
+    __:='|____`-:__
+   ||[] ||====| []||
+   ||[] | |=| | []||
+   |:||_|=|U| |_||:|
+   |:|||]_=_ =[_||:| LS
+   | |||] [_][]C|| |
+   | ||-'"""""`-|| |
+   /|\\_\_|_|_/_//|\
+  |___|   /|\   |___|   R2 Astromech Droid
+  `---'  |___|  `---'     - Front View -
+         `---'</pre>
+                    </p>
+                </article>
+        
     <script>
         //    var online = true;
     </script>

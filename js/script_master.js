@@ -132,8 +132,15 @@ function allowDrop(event) {
 function handleDrop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("artikel_id");
+    if (data != '99')
+    {
     add(data);
     callSidebar();
+    }
+    else
+    {
+        callEasterEg();
+    }
 
 
 }
@@ -205,6 +212,10 @@ textueberuns.innerHTML = document.getElementById("ueberuns").innerHTML;
 var hostlogin = document.querySelector('log-in');
 var textlogin = hostlogin.createShadowRoot();
 textlogin.innerHTML = document.getElementById("login").innerHTML;
+
+var hosteastereg = document.querySelector('eastereg');
+var texteastereg = hostlogin.createShadowRoot();
+texteastereg.innerHTML = document.getElementById("eastereg").innerHTML;
 
 var hostlogout = document.querySelector('log-out');
 var textlogout = hostlogout.createShadowRoot();
@@ -558,4 +569,11 @@ function popstatehandler(event) {
 
     }
 
+}
+
+function callEasterEg() {
+    
+    document.getElementById("swap").innerHTML = texteastereg.innerHTML;
+    
+    
 }
