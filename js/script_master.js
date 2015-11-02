@@ -487,29 +487,31 @@ function init() {
 function bestellen() {
 
     if (isLoggedIn() == true) {
+        
+        if (getArtikelGesamtsumme() != 0)
+        {
+        alert("Ihre Bestellung wurde abgeschicket");
+        sndReq();
+        callSpeisekarte();
 
-        if (getArtikelGesamtsumme() != 0) {
-            alert("Ihre Bestellung wurde abgeschicket");
-            sndReq();
-            callSpeisekarte();
+        var myNode = document.getElementById("warenkorb-sidebar");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
 
-            var myNode = document.getElementById("warenkorb-sidebar");
-            while (myNode.firstChild) {
-                myNode.removeChild(myNode.firstChild);
-            }
+        var bild1 = document.createElement("img");
+        bild1.src = "media/drag_drop.png";
 
-            var bild1 = document.createElement("img");
-            bild1.src = "media/drag_drop.png";
+        var bild = document.createElement("div");
+        var br = document.createElement("br");
+        bild.innerHTML = "<img src='media/einkaufswagen.png' width='40%' height='40%' onclick='callWarenkorb()'>"
 
-            var bild = document.createElement("div");
-            var br = document.createElement("br");
-            bild.innerHTML = "<img src='media/einkaufswagen.png' width='40%' height='40%' onclick='callWarenkorb()'>"
-
-            document.getElementById("warenkorb-sidebar").appendChild(bild1);
-            document.getElementById("warenkorb-sidebar").appendChild(br);
-            document.getElementById("warenkorb-sidebar").appendChild(bild);
-        } else {
-
+        document.getElementById("warenkorb-sidebar").appendChild(bild1);
+        document.getElementById("warenkorb-sidebar").appendChild(br);
+        document.getElementById("warenkorb-sidebar").appendChild(bild);
+        }
+        else{
+         
             alert("Es befindet sich nichts im Warenkorb");
         }
 
