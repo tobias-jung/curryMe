@@ -115,7 +115,7 @@
 <template id="kontakt">
     <header>
         <h2><a href="#" title="Kontaktiere uns!">Kontaktiere uns!</a></h2></header>
-    <form class="form-horizontal">
+    <form action="/contact" method="post" class="form-horizontal">
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Name, Vorname</label>
@@ -197,7 +197,7 @@
         <div class="form-group submitbutton">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="myButton">Abschicken</button>
+                <button id="singlebutton" name="singlebutton" action="/contact" method="post" class="myButton">Abschicken</button>
             </div>
         </div>
     </form>
