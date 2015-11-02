@@ -463,6 +463,13 @@
                     color: #FFFFFF;
                 }
                 
+                .starwows {
+                    -webkit-animation: rainbow 1s infinite;
+                    -ms-animation: rainbow 1s infinite;
+                    -o-animation: rainbow 1s infinite;
+                    animation: rainbow 1s infinite;
+                }
+                
                 .rainbow:hover {
                     -webkit-animation: rainbow 1s infinite;
                     -ms-animation: rainbow 1s infinite;
