@@ -131,6 +131,7 @@
                     border-radius: 5px;
                     float: left;
                     width: 70%;
+                    max-width: 1090px;
                 }
                 
                 .allcontent {
@@ -606,7 +607,7 @@
                     }
                 }
                 
-                @media only screen and (min-width: 847px) and (max-width: 1590px) {
+                @media only screen and (min-width: 870px) and (max-width: 1590px) {
                     .mainheader nav a.warenkorb {
                         display: block;
                     }
@@ -621,12 +622,13 @@
                     }
                     .content {
                         width: 100%;
+                        padding: 10px 0 10px 25px;
+                        max-width: none;
                     }
                     .maincontent {
                         width: 90%;
                         margin-left: auto;
                         margin-right: auto;
-                        padding: 0px;
                     }
                     .swap {
                         width: 100%;
@@ -636,11 +638,11 @@
                         margin: 0px auto 5px auto;
                     }
                     .content {
-                        padding: 0 10px;
+                        padding: 10px 0 10px 25px;
                     }
                 }
                 
-                @media only screen and (min-width: 150px) and (max-width: 846px) {
+                @media only screen and (min-width: 150px) and (max-width: 869px) {
                     .body {
                         width: 100%;
                         font-size: 95%
@@ -689,7 +691,7 @@
                         margin-right: auto;
                     }
                     .content {
-                        padding: 0px 10px;
+                        padding: 10px 10px 10px 25px;
                         width: 100%;
                     }
                     .maincontent {

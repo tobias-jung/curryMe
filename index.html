@@ -12,7 +12,7 @@
 
 <body onload='init();'>
     <header class="mainheader go-cool">
-        <img src="media/logo.png" alt="CurryMe">
+        <img src="media/logo.png" onclick="callStartseite()" style="cursor: pointer;" alt="CurryMe">
         <div class="clock">
             <canvas id="clock" width="170" height="59"></canvas>
         </div>
@@ -341,8 +341,8 @@
 
 <template id="logout">
     <header>
-        <h2><a href="#" title="Logout">Herzlich Willkommen <span id='username '>placeholder</span>,</a></h2></header>
-    <p>wenn Sie sich abmelden möchten, dann klicken Sie auf"Logout"!</p>
+        <h2><a href="#" title="Logout">Herzlich Willkommen <span id='username'>placeholder</span>,</a></h2></header>
+    <p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p>
     <form action="/logout" method="get">
         <input class="myButton" type="submit" value="Logout">
 
