@@ -146,12 +146,17 @@ function handleDrop(event) {
 }
 
 function callSidebar() {
+    
+    
 
     var myNode = document.getElementById("warenkorb-sidebar");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
 
+    if (getArtikelGesamtsumme() != 0)
+        {
+    
     var tabelle = document.createElement("table");
     tabelle.border = 0;
 
@@ -183,6 +188,17 @@ function callSidebar() {
 
     }
     document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
+}
+else
+{
+            var bild1 = document.createElement("img");
+            var br = document.createElement("br");
+            bild1.src = "media/drag_drop.png";
+            document.getElementById("warenkorb-sidebar").appendChild(bild1);
+            document.getElementById("warenkorb-sidebar").appendChild(br);
+            
+    
+}
 
     var bild = document.createElement("div");
     var br = document.createElement("br");
