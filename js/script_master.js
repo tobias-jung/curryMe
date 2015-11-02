@@ -315,6 +315,8 @@ function callStartseite() {
     hstate = 5;
     document.getElementById("logo1").style.display = "block";
     document.getElementById("logo2").style.display = "none";
+    document.getElementById("99").style.display = "block";
+    document.getElementById("1230").style.display = "none";
     document.getElementById("swap").innerHTML = textstartseite.innerHTML;
 
 }
@@ -587,5 +589,7 @@ function callEasterEg() {
     document.getElementById("audiotag1").play();
     document.getElementById("logo1").style.display = "none";
     document.getElementById("logo2").style.display = "block";
+    document.getElementById("99").style.display = "none";
+    document.getElementById("1230").style.display = "block";
     document.getElementById("swap").innerHTML = texteastereg.innerHTML;
 }

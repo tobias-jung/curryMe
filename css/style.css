@@ -74,6 +74,12 @@
                     margin: 10px auto 0 10px;
                 }
                 
+                .supercoolgif {
+                    display: none;
+                    width: 8% !important;
+                    float: right !important;
+                }
+                
                 .mainheader img {
                     float: left;
                     width: 320px;
