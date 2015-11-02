@@ -62,9 +62,9 @@ function del(artikel_id) {
 
         if (artikel[i].id == artikel_id) {
             artikel[i].anzahl--;
-            
+
             if (artikel[i].anzahl < 0) {
-             artikel[i].anzahl = 0;   
+                artikel[i].anzahl = 0;
             }
         }
 
@@ -132,13 +132,10 @@ function allowDrop(event) {
 function handleDrop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("artikel_id");
-    if (data != '99')
-    {
-    add(data);
-    callSidebar();
-    }
-    else
-    {
+    if (data != '99') {
+        add(data);
+        callSidebar();
+    } else {
         callEasterEg();
     }
 
@@ -319,6 +316,8 @@ function callStartseite() {
 
     history.pushState(hstate, null, "startseite");
     hstate = 5;
+    document.getElementById("logo1").style.display = "block";
+    document.getElementById("logo2").style.display = "none";
     document.getElementById("swap").innerHTML = textstartseite.innerHTML;
 
 }
@@ -588,8 +587,9 @@ function popstatehandler(event) {
 }
 
 function callEasterEg() {
-    
+    document.getElementById("logo1").style.display = "none";
+    document.getElementById("logo2").style.display = "block";
     document.getElementById("swap").innerHTML = texteastereg.innerHTML;
-    
-    
+
+
 }
