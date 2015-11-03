@@ -313,6 +313,7 @@ function callStartseite() {
 
     history.pushState(hstate, null, "startseite");
     hstate = 5;
+    document.getElementById("bodysw").style.backgroundImage = 'url(../media/spices.jpg)';
     document.getElementById("logo1").style.display = "block";
     document.getElementById("logo2").style.display = "none";
     document.getElementById("99").style.display = "block";
@@ -587,6 +588,7 @@ function popstatehandler(event) {
 
 function callEasterEg() {
     document.getElementById("audiotag1").play();
+    document.getElementById("bodysw").style.backgroundImage = 'url(../media/swbackground.jpg)';
     document.getElementById("logo1").style.display = "none";
     document.getElementById("logo2").style.display = "block";
     document.getElementById("99").style.display = "none";
