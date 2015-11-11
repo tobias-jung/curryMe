@@ -1,3 +1,4 @@
+//Galobale Variablen
 resObjekt = new XMLHttpRequest();
 var artikel;
 var benutzer;
@@ -5,6 +6,7 @@ var hstate;
 var hstate = 5;
 
 
+//Ajax Aufruf
 function sndReq() {
     resObjekt.open('get', './json/artikel.json', false);
     resObjekt.onreadystatechange = handleResponse;
@@ -21,19 +23,17 @@ function handleResponse() {
         artikel = JSON.parse(resObjekt.responseText);
 
 
-
     }
-
-
 }
 
 
+//Artikel übergeben
 function getArtikel() {
 
     return artikel;
 }
 
-//Get Gesamtsumme Artikel
+//Gesamtsumme Artikel
 function getArtikelGesamtsumme() {
     var gesamtsumme;
     gesamtsumme = 0.00;
@@ -44,7 +44,7 @@ function getArtikelGesamtsumme() {
 
 }
 
-//Hinzufügen
+//Artikel hinzufügen
 function add(artikel_id) {
 
     for (var i = 0; i < artikel.length; i++) {
@@ -56,6 +56,7 @@ function add(artikel_id) {
     }
 }
 
+//Artikel löschen
 function del(artikel_id) {
 
     for (var i = 0; i < artikel.length; i++) {
@@ -71,6 +72,7 @@ function del(artikel_id) {
     }
 }
 
+//Onclick löschen Button im Warenkorb
 function delButton(artikel_id) {
 
     del(artikel_id);
@@ -80,6 +82,7 @@ function delButton(artikel_id) {
 
 }
 
+//Onclick hinzufügen Button im Warenkorb
 function addButton(artikel_id) {
 
 
@@ -89,6 +92,7 @@ function addButton(artikel_id) {
 
 }
 
+//Onclick löschen Button in der Speisekarte
 function delButtonSpeisekarte(artikel_id) {
 
     del(artikel_id);
@@ -98,6 +102,7 @@ function delButtonSpeisekarte(artikel_id) {
 
 }
 
+//Onclick hinzufügen Button in  der Speisekarte
 function addButtonSpeisekarte(artikel_id) {
 
 
@@ -108,13 +113,8 @@ function addButtonSpeisekarte(artikel_id) {
 }
 
 
-/*
-Warenkorb - Drag and Drop
-Author: Fabian Sölker
-*/
 
-//var iframe = document.getElementById("warenkorbFrame");
-
+//Drag and Drop - Warenkorb
 //Dragstart
 function drag(event) {
     event.dataTransfer.setData("artikel_id", event.srcElement.id);
@@ -142,15 +142,17 @@ function handleDrop(event) {
 
 }
 
+//Sidebar aktualisieren
 function callSidebar() {
 
 
-
+//Sidebar leeren
     var myNode = document.getElementById("warenkorb-sidebar");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
-
+    
+//Anzahl der Artikel überprüfen und Tabelle aufbauen
     if (getArtikelGesamtsumme() != 0) {
 
         var tabelle = document.createElement("table");
@@ -184,7 +186,9 @@ function callSidebar() {
 
         }
         document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
-    } else {
+    } 
+    //Wenn keine Artikel im Warenkorb -> Drag and Drop Symbol anzeigen
+    else {
         var bild1 = document.createElement("img");
         var br = document.createElement("br");
         bild1.src = "media/drag_drop.png";
@@ -194,6 +198,7 @@ function callSidebar() {
 
     }
 
+    //Logo für den Warenkorb anhängen
     var bild = document.createElement("div");
     var br = document.createElement("br");
     bild.innerHTML = "<img src='media/einkaufswagen.png' width='40%' height='40%' onclick='callWarenkorb()'>"
@@ -242,6 +247,7 @@ textstartseite.innerHTML = document.getElementById("startseite").innerHTML;
 
 
 //Function Call
+//Aufruf der jeweiligen custom Elements
 
 function callKontakt() {
 
@@ -260,10 +266,7 @@ function callUeberUns() {
     document.getElementById("swap").innerHTML = textueberuns.innerHTML;
 
 }
-/*
-Authentifizierung mittels Authentication Passport
-Author: Tobias Jung
-*/
+
 function callLogIn() {
 
     history.pushState(hstate, null, "login");
@@ -322,11 +325,13 @@ function callStartseite() {
 
 }
 
+//Speisekarte aufrufen
 function callSpeisekarte() {
 
     history.pushState(hstate, null, "speisekarte");
     hstate = 4;
 
+    //Content Bereich leeren
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
@@ -334,14 +339,15 @@ function callSpeisekarte() {
 
 
 
-
+    //Wenn noch kein Ajax Aufruf gestartet wurde
+    //Artikel via Ajax aus JSON nachladen
     if (typeof (getArtikel()) == "undefined") {
         sndReq();
     }
 
     var idProdukt = 1;
 
-
+    //Aufbau der Drag and Drop Elmente in einzelnen DIV Bereichen
     for (var i = 0; i < artikel.length; i++) {
 
         var divSpeisekarte = document.createElement("div");
@@ -363,6 +369,7 @@ function callSpeisekarte() {
         posten.innerHTML = "<tr><td><img src ='" + artikel[i].grafik + "'></td><td   width='" + ((document.getElementById("swap").clientWidth) * 0.1) + "'>" + artikel[i].name + "</td><td width='" + ((document.getElementById("swap").clientWidth) * 0.2) + "'>" + artikel[i].beschreibung + "</td><td>" + artikel[i].preis + "€</td><td><button type='button' onclick = 'delButtonSpeisekarte(" + artikel[i].id + ")'>-</button></td><td><button type='button' onclick = 'addButtonSpeisekarte(" + artikel[i].id + ")'>+</button></td></tr>"
 
 
+        //Elemente in den Content Bereich einfügen
         postenDiv.appendChild(posten);
         var divBR = document.createElement("br");
         divSpeisekarte.appendChild(postenDiv);
@@ -381,12 +388,15 @@ function callWarenkorb() {
 
     history.pushState(hstate, null, "warenkorb");
     hstate = 7;
-
+    
+    
+    //Content Bereich leeren
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
 
+    //Tabelle erezugen und für Artikel.Anzahl > 0 füllen
     var tabelle = document.createElement("table");
     tabelle.border = 1;
 
@@ -409,6 +419,7 @@ function callWarenkorb() {
 
         }
 
+        //Gesamtsumme ausgeben
         var gesamtsummeTabelle = document.createElement("table");
         gesamtsummeTabelle.innerHTML = "<th>Gesamtsumme</th><td>" + getArtikelGesamtsumme() + "€</td>"
 
@@ -416,6 +427,8 @@ function callWarenkorb() {
         document.getElementById("swap").appendChild(tabelle);
 
     }
+    
+    //Elemente hinzufügen
     document.getElementById("swap").appendChild(gesamtsummeTabelle);
 
     var br = document.createElement("br");
@@ -437,10 +450,11 @@ function callWarenkorb() {
 
 //Canvas Uhr
 
-// Global variable
+// Variablen
 var clock_face = null,
     ctx = null;
 
+//Anpassung der Gesamtgröße und Zeichengröße
 var IMG_HEIGHT = 59,
     IMG_WIDTH = 170,
     DIGIT_HEIGHT = IMG_HEIGHT,
@@ -450,6 +464,7 @@ var IMG_HEIGHT = 59,
     secondWidth = 0,
     secondHeight = 0;
 
+//Canvas Uhr leeren
 function clearCanvas() {
 
 
@@ -460,6 +475,9 @@ function pad2(number) {
     return (number < 10 ? '0' : '') + number;
 }
 
+//Neue Uhrzeit einzeichenn
+//Zeit auslesen
+//Passendes Zeichen aus PNG lesen
 function draw() {
 
     var currentTime = new Date(),
@@ -473,7 +491,7 @@ function draw() {
         drawHHMMDigit(time, iDigit);
     }
 
-    // Draw scalled second digits
+    //Sekunden zeichnen
     ctx.drawImage(clock_face, time.substr(4, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xSecondStartPos, 5, secondWidth, secondHeight);
     ctx.drawImage(clock_face, time.substr(5, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xSecondStartPos + secondWidth, 5, secondWidth, secondHeight);
 }
@@ -482,6 +500,7 @@ function drawHHMMDigit(time, unit) {
     ctx.drawImage(clock_face, time.substr(unit, 1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xPositions[unit], 0, DIGIT_WIDTH, DIGIT_HEIGHT);
 }
 
+//Sekündliches Intervall einstellen
 function imgLoaded() {
     setInterval(draw, 1000);
 }
@@ -495,7 +514,7 @@ function init() {
     if (canvas.getContext('2d')) {
         ctx = canvas.getContext('2d');
 
-
+        
         clock_face = new Image();
         clock_face.src = './media/flip_clock_small_hd.png';
         clock_face.onload = imgLoaded;
@@ -550,11 +569,12 @@ function bestellen() {
 
 }
 
+//History verwalten
 window.onpopstate = popstatehandler;
 
 function popstatehandler(event) {
 
-
+//Aus dem Stack gelieferte Werte rufen die jeweiligen Funktionen aus
     if (history.state != null) {
 
         switch (event.state) {
@@ -586,6 +606,7 @@ function popstatehandler(event) {
 
 }
 
+//Easter Egg aufrufen
 function callEasterEg() {
     document.getElementById("audiotag1").play();
     document.getElementById("bodysw").style.backgroundImage = 'url(../media/swbackground.jpg)';
