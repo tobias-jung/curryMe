@@ -1,4 +1,4 @@
-//Galobale Variablen
+//Globale Variablen
 resObjekt = new XMLHttpRequest();
 var artikel;
 var benutzer;
