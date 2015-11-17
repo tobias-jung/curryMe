@@ -12,14 +12,18 @@
 </head>
 
 <body id="bodysw" onload='init();'>
-    <header class="mainheader go-cool">
+    <header class="mainheader boxTransparent">
+        <!--Curryme Logo-->
         <img src="media/logo.png" id="logo1" onclick="callStartseite()" alt="CurryMe">
-        <img src="media/logosw.png" id="logo2" class="supercool" alt="StarWarsMe">
+        <!--StarWarsme Logo-->
+        <img src="media/logosw.png" id="logo2" class="gif1" alt="StarWarsMe">
+        <!--Uhr-->
         <div class="clock">
             <canvas id="clock" width="170" height="59"></canvas>
         </div>
+        <!--Gif Sektion-->
         <img style="width:5%; float: right;" class="wuerstsche" src="../media/dancing-hotdog-couple.gif" draggable="true" ondragstart=drag(event) id="99">
-        <img class="supercoolgif" src="../media/starfight.gif" draggable="true" ondragstart=drag(event) id="1230">
+        <img class="gif2" src="../media/starfight.gif" draggable="true" ondragstart=drag(event) id="1230">
         <nav>
             <ul>
                 <li>
@@ -51,7 +55,7 @@
 
     <div class="maincontent">
         <audio id="audiotag1" src="media/StarWars-MainTheme.mp3" preload="auto"></audio>
-        <div class="content go-cool">
+        <div class="content boxTransparent">
 
             <div id="swap">
 
@@ -65,6 +69,7 @@
                     </content>
                 </article>
             </div>
+            <!-- Initialisierung der Templates, jedoch ausgeblendet-->
             <div style="display: none">
                 <x-kontakt></x-kontakt>
                 <log-in></log-in>
@@ -77,7 +82,7 @@
             </div>
         </div>
 
-        <aside class="top-sidebar go-cool" id="warenkorb-sidebar" ondrop=handleDrop(event) ondragover=allowDrop(event)>
+        <aside class="top-sidebar boxTransparent" id="warenkorb-sidebar" ondrop=handleDrop(event) ondragover=allowDrop(event)>
 
             <img src="media/drag_drop.png">
             <br>
@@ -86,7 +91,7 @@
 
         </aside>
     </div>
-    <footer class="mainfooter go-cool">
+    <footer class="mainfooter boxTransparent">
         <ul class="kontakt">
             <li>
                 <h2>Anfahrt</h2></li>
@@ -113,6 +118,7 @@
 
     </footer>
 </body>
+<!--Template Sektion, Styling in CSS-->
 <template id="kontakt">
     <header>
         <h2><a href="#" title="Kontaktiere uns!">Kontaktiere uns!</a></h2></header>
@@ -318,7 +324,15 @@
 
 </template>
 
+<template id="logout">
+    <header>
+        <h2><a href="#" title="Logout">Herzlich Willkommen <span id='username'>placeholder</span>,</a></h2></header>
+    <p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p>
+    <form action="/logout" method="get">
+        <input class="myButton" type="submit" value="Logout">
+</template>
 
+<!--Auslösen indem die Würstchen GIF in den Warenkorb gezogen wird-->
 <template id="eastereg">
     <div>
         <article style="float:left">
@@ -366,16 +380,6 @@
         </article>
     </div>
 </template>
-
-<template id="logout">
-    <header>
-        <h2><a href="#" title="Logout">Herzlich Willkommen <span id='username'>placeholder</span>,</a></h2></header>
-    <p>wenn Sie sich abmelden möchten, dann klicken Sie auf "Logout"!</p>
-    <form action="/logout" method="get">
-        <input class="myButton" type="submit" value="Logout">
-
-</template>
-
 
 <script language="javascript" type="text/javascript" src="./js/script_master.js"></script>
 

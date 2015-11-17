@@ -146,13 +146,13 @@ function handleDrop(event) {
 function callSidebar() {
 
 
-//Sidebar leeren
+    //Sidebar leeren
     var myNode = document.getElementById("warenkorb-sidebar");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
-    
-//Anzahl der Artikel überprüfen und Tabelle aufbauen
+
+    //Anzahl der Artikel überprüfen und Tabelle aufbauen
     if (getArtikelGesamtsumme() != 0) {
 
         var tabelle = document.createElement("table");
@@ -186,7 +186,7 @@ function callSidebar() {
 
         }
         document.getElementById("warenkorb-sidebar").appendChild(gesamtsummeTabelle);
-    } 
+    }
     //Wenn keine Artikel im Warenkorb -> Drag and Drop Symbol anzeigen
     else {
         var bild1 = document.createElement("img");
@@ -388,8 +388,8 @@ function callWarenkorb() {
 
     history.pushState(hstate, null, "warenkorb");
     hstate = 7;
-    
-    
+
+
     //Content Bereich leeren
     var myNode = document.getElementById("swap");
     while (myNode.firstChild) {
@@ -427,7 +427,7 @@ function callWarenkorb() {
         document.getElementById("swap").appendChild(tabelle);
 
     }
-    
+
     //Elemente hinzufügen
     document.getElementById("swap").appendChild(gesamtsummeTabelle);
 
@@ -514,7 +514,7 @@ function init() {
     if (canvas.getContext('2d')) {
         ctx = canvas.getContext('2d');
 
-        
+
         clock_face = new Image();
         clock_face.src = './media/flip_clock_small_hd.png';
         clock_face.onload = imgLoaded;
@@ -574,7 +574,7 @@ window.onpopstate = popstatehandler;
 
 function popstatehandler(event) {
 
-//Aus dem Stack gelieferte Werte rufen die jeweiligen Funktionen aus
+    //Aus dem Stack gelieferte Werte rufen die jeweiligen Funktionen aus
     if (history.state != null) {
 
         switch (event.state) {
@@ -601,9 +601,7 @@ function popstatehandler(event) {
             callWarenkorb();
             break;
         }
-
     }
-
 }
 
 //Easter Egg aufrufen

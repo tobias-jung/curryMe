@@ -66,7 +66,7 @@
                     border-bottom-right-radius: 5px;
                 }
                 
-                .supercool {
+                .gif1 {
                     display: none;
                     float: left;
                     width: 290px !important;
@@ -74,7 +74,7 @@
                     margin: 10px auto 0 10px;
                 }
                 
-                .supercoolgif {
+                .gif2 {
                     display: none;
                     width: 8% !important;
                     float: right !important;
@@ -464,7 +464,7 @@
                     background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
                 }
                 
-                .go-cool {
+                .boxTransparent {
                     background-color: rgba(0, 0, 0, 0.6);
                     color: #FFFFFF;
                 }
@@ -482,6 +482,7 @@
                     -o-animation: rainbow 1s infinite;
                     animation: rainbow 1s infinite;
                 }
+                /*Rainbow Schrift, ändert Dynamisch die Schriftfarbe*/
                 
                 @-webkit-keyframes rainbow {
                     0% {
@@ -626,6 +627,7 @@
                         color: #ff0080;
                     }
                 }
+                /*Tablet Ansicht*/
                 
                 @media only screen and (min-width: 870px) and (max-width: 1590px) {
                     .mainheader nav a.warenkorb {
@@ -661,9 +663,10 @@
                         padding: 10px 0 10px 25px;
                     }
                 }
+                /*Handy Ansicht*/
                 
                 @media only screen and (min-width: 150px) and (max-width: 869px) {
-                    .supercoolgif,
+                    .gif2,
                     .wuerstsche {
                         display: none;
                     }
